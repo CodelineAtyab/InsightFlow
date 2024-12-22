@@ -9,7 +9,7 @@
         <h1>
             What went well
         </h1>
-        <ul>
+        <ul id = "wwc">
             <li>We had revisions</li>
             <li>We had tasks that gave us a good idea about HTML</li>
             <li>We are motivated</li>
@@ -18,11 +18,23 @@
         <h1>
             Challenges faced 
         </h1>
-        <ul>
+        <ul id = "cfc">
             <li>Time restrictions</li>
             <li>Focusing at the end of session</li>
            
         </ul>
-          
+       <script>
+        const wwcElemObj = document.getElementById("wwc");
+        const newListItmObj = document.createElement("li");
+        newListItmObj.innerText = "This is added by Javascript";
+
+        wwcElemObj.append(newListItmObj);
+      
+        const cfcElementObject = document.getElementById("cfc");
+        const newListItemObj2 = document.createElement("li");
+        newListItemObj2.innerText = "This is added by Javascript";
+
+        cfcElementObject.append(newListItemObj2);
+       </script>
     </body>
 </html>
