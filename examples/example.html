@@ -7,21 +7,38 @@
         <h1>
             what went well
         </h1>
-        <ul>
+         <!--First Column-->
+        <ul id="wwc">
             <li>we had revisions</li>
             <li>we had tasks  that gave us a good idea about HTML</li>
             <li>we are motivated</li>
             
         </ul>
+        <!--Second Column-->
         <h1>
             Chanllenges faced
         </h1>
-        <ul>
+        <ul id="Cf">
             <li>Time restrictions</li>
             <li>Focusing at the end os session</li>
             
             
         </ul>
+         <!--This for First Column-->
+        <script>
+            const WwcElemeObj=document.getElementById("wwc");
+            const newListItemObj=document.createElement("li");
+            newListItemObj.innerHTML="This is added by Javascript";
+            WwcElemeObj.append(newListItemObj);
+        </script>
+
+         <!--This for Second Column-->
+          <script>
+            const WwcElemeObj2=document.getElementById("Cf");
+            const newListItemObj2=document.createElement("li");
+            newListItemObj2.innerHTML="This is added another by Javascript";
+            WwcElemeObj2.append(newListItemObj2);
+        </script>
      
     </body>
 </html>
