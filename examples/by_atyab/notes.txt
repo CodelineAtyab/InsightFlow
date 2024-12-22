@@ -1,1 +1,10 @@
-TBD
+Please read and explor the following:
+=====================================
+
+Document Object Model
+
+Compiler VS Interpreter
+
+Why is Java called a Hybrid Language
+
+Why is Javasciprt/Python scripting languages
