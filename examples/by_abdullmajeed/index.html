@@ -1,30 +1,58 @@
 <html>
     <head>
         <title>
-            Insight Flow
+            Insight FLow .....
         </title>
     </head>
     <body>
-        <h2>What went well</h2>
-        <ul>
+        <head>
+            <h1>
+                Let's Reveal What You Don't Know
+            </h1>
+
+
+            <input id="usrMsg" type="text"  placeholder="Your Message Here" />
+            <button onclick="displayGivenMsg()">Post It!</button>
+            <span id="displayUserMsg"></span>
+
+            <h4 id="displayMsg"></h4>
+            
+
+        <h3>What went well</h3>
+        <ul id="went well">
             <li>We had revision</li>
             <li>We had tasks that gave us a good idea about HTML</li>
             <li>We are motivated</li>
         </ul>
         <h2>Challenges faced</h2>
-        <ul id="wwc">
+        <ul id = "Challenges">
             <li>Time restrictions</li>
             <li>Focusing at the end of the session</li>
         </ul>
         <script>
-       const wwcElemobj = document.getElementById("wwc");
 
-       const newListItemObj = document.createElement("li");
-       newListItemObj.innerText = "This is added by JavaScript";
+            const displayGivenMsg = () => {
+                const usrMsgObj = document.getElementById("displayUserMsg");
 
-       wwcElemobj.append(newListItemObj);
-       
+                const newH4 = document.createElement("h4");
+                newH4.innerHTML = document.getElementById("usrMsg").value;
 
+                usrMsgObj.append(newH4);
+
+            }
+          
+        </script>
+        <script>
+            const obj = document.getElementById("went well")
+            const newListItemObj= document.createElement("li")
+            newListItemObj.innerText="this is new text added by javaScript"
+            obj.append(newListItemObj)
+            const challengsObj=document.getElementById("Challenges")
+            const newChalengeInList = document.createElement("li")
+            newChalengeInList.innerText="i have faced some challenge in understand this "
+            challengsObj.append(newChalengeInList)
+            const firstItem = obj.getElementsByTagName("li")[0];
+            firstItem.remove();
         </script>
     </body>
 </html>
