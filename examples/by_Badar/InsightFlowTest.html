@@ -6,7 +6,7 @@
     </head>
     <body>
         <h2 style="color: rgb(30, 170, 17);"> What Went Well</h2>
-        <ol>
+        <ol id="wwc">
             <li>we had revisions</li>
             <li>We had tasks that gave us a good idea about HTML</li>
             <li>We are motivated</li>
@@ -16,5 +16,14 @@
             <li>Time restrictins</li>
             <li>Focusing at the end of the session</li>
         </ol>
+        <script>
+            const x = document.getElementById("wwc");
+            const newListItem = document.createElement("li");
+            newListItem.innerText = "ALL IS SWELL";
+            newListItem.style = "color: rgb(231, 39, 39);"
+
+            x.append(newListItem);
+
+        </script>
     </body>
 </html>
