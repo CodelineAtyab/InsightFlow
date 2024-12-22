@@ -8,17 +8,30 @@
         </h1>
 
         <h2>What Went Well</h2>
-        <ul>
+        <ul id = "wwc">
             <li>We Had Revisions</li>
             <li>Efficient Collaboration</li>
             <li>We Are Motivated</li>
         </ul>
 
         <h2>Challenges Faced</h2>
-        <ul>
+        <ul id="cfc">
             <li>Limited Offline Access</li>
             <li>Time Restriction</li>
         </ul>
        
+        <script>
+            //This is for the what went well column
+            const wwcObj =  document.getElementById("wwc");
+            const newListItemObjectCol1 = document.createElement("li");
+            newListItemObjectCol1.innerText = "This is added by js";
+            wwcObj.append(newListItemObjectCol1);
+
+            //This is for the challenges faced column
+           const cfcObj = document.getElementById("cfc");
+           const newListItemObjectCol2 = document.createElement("li");
+           newListItemObjectCol2.innerText = "This is added by js";
+           cfcObj.append(newListItemObjectCol2);
+        </script>
     </body>
 </html>
