@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>
+            Insight Flow
+        </title>
+    </head>
+    <body>
+        <h2>What went well</h2>
+        <ul>
+            <li>We had revision</li>
+            <li>We had tasks that gave us a good idea about HTML</li>
+            <li>We are motivated</li>
+        </ul>
+        <h2>Challenges faced</h2>
+        <ul id="wwc">
+            <li>Time restrictions</li>
+            <li>Focusing at the end of the session</li>
+        </ul>
+        <script>
+       const wwcElemobj = document.getElementById("wwc");
+
+       const newListItemObj = document.createElement("li");
+       newListItemObj.innerText = "This is added by JavaScript";
+
+       wwcElemobj.append(newListItemObj);
+       
+
+        </script>
+    </body>
+</html>
