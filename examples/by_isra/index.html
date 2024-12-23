@@ -2,11 +2,22 @@
     <head>
         <title>Insight Flow</title>
     </head>
-    <body>
+    <body id=""mainBody>
         <h1>
             Let’s Uncover What You Don’t Know 
         </h1>
 
+        <!--take the user input and display the result under-->
+        <input id= "userMsg" type="text" placeholder="Enter Text Here" /> 
+        <button onclick="displayGivenMsg()">POST</button>
+
+        <h4 id="displayMsg"></h4>
+
+        <!--test old and new ways of writing functions-->
+        <button onclick="dispalyMsgOld()">Call Old Style Function</button>
+        <button onclick="displayMsgNew()">Call New Style Function</button>
+
+        <!--display list elements-->
         <h2>What Went Well</h2>
         <ul id = "wwc">
             <li>We Had Revisions</li>
@@ -32,6 +43,32 @@
            const newListItemObjectCol2 = document.createElement("li");
            newListItemObjectCol2.innerText = "This is added by js";
            cfcObj.append(newListItemObjectCol2);
+
+           //this do delete a list 
+           //i want to delete "Efficient Collaboration"
+           const element = document.querySelectorAll("li")[1]; 
+           element.remove();
+
+        </script>
+
+        <script>
+            //define a function that will display the output
+            function displayGivenMsg(){
+                const userMsgObj = document.getElementById("displayMsg");
+                const userInput = document.getElementById("userMsg").value;
+                //to overwite 
+                userMsgObj.textContent = userInput;
+            }
+        </script>
+
+        <script>
+            function dispalyMsgOld(){
+                console.log("old style");
+            }
+
+            const displayMsgNew = () =>{
+                console.log("new style");
+            }
         </script>
     </body>
 </html>
