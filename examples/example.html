@@ -1,44 +1,89 @@
 <html>
-    <head>
-        <title>Insight Flow</title>
-    </head>
-    <body>
-        <h1>Lets reveal what you don't know</h1>
-        <h1>
-            what went well
-        </h1>
-         <!--First Column-->
-        <ul id="wwc">
-            <li>we had revisions</li>
-            <li>we had tasks  that gave us a good idea about HTML</li>
-            <li>we are motivated</li>
-            
-        </ul>
-        <!--Second Column-->
-        <h1>
-            Chanllenges faced
-        </h1>
-        <ul id="Cf">
-            <li>Time restrictions</li>
-            <li>Focusing at the end os session</li>
-            
-            
-        </ul>
-         <!--This for First Column-->
-        <script>
-            const WwcElemeObj=document.getElementById("wwc");
-            const newListItemObj=document.createElement("li");
-            newListItemObj.innerHTML="This is added by Javascript";
-            WwcElemeObj.append(newListItemObj);
-        </script>
 
-         <!--This for Second Column-->
-          <script>
-            const WwcElemeObj2=document.getElementById("Cf");
-            const newListItemObj2=document.createElement("li");
-            newListItemObj2.innerHTML="This is added another by Javascript";
-            WwcElemeObj2.append(newListItemObj2);
-        </script>
-     
-    </body>
+<head>
+    <title>Insight Flow</title>
+</head>
+
+<body>
+    <h1>Lets reveal what you don't know</h1>
+
+
+    <input id="usrMsg" type="text" placeholder="Your Message Here " />
+    <button onclick="displayGiveMsg()">Post It!</button>
+    <button onclick="displayOldMsg()">Click the old style</button>
+    <button onclick="displayNewMsg()">Click the New style</button>
+
+    <span id="feadback"></span>
+
+    <h4 id="displayMsg"></h4>
+    <h1>
+        what went well
+    </h1>
+    <!--First Column-->
+    <ul id="wwc">
+        <li>we had revisions</li>
+        <li>we had tasks that gave us a good idea about HTML</li>
+        <li>we are motivated</li>
+
+    </ul>
+    <!--Second Column-->
+    <h1>
+        Chanllenges faced
+    </h1>
+    <ul id="Cf">
+        <li>Time restrictions</li>
+        <li>Focusing at the end os session</li>
+
+
+    </ul>
+    <!--This for First Column-->
+    <script>
+        const WwcElemeObj = document.getElementById("wwc");
+        const newListItemObj = document.createElement("li");
+        newListItemObj.innerHTML = "This is added by Javascript";
+        WwcElemeObj.append(newListItemObj);
+
+
+
+    </script>
+
+    <!--This for Second Column-->
+    <script>
+        const WwcElemeObj2 = document.getElementById("Cf");
+        const newListItemObj2 = document.createElement("li");
+        newListItemObj2.innerHTML = "This is added another by Javascript";
+        WwcElemeObj2.append(newListItemObj2);
+    </script>
+    <script>
+
+        function displayGiveMsg() {
+
+            const usrMsgObj = document.getElementById("displayMsg");
+            //const newH4 = document.createElement("h4");
+            usrMsgObj.innerHTML = document.getElementById("usrMsg").value;
+            // usrMsgObj.append(newH4);
+
+        }
+        <!--This for delete second point from 1 list-->
+        const Item = document.querySelectorAll("li")[1];
+        Item.remove();
+
+        //delet second point from 2 list
+        const Item2 = document.querySelectorAll("li")[4];
+        Item2.remove();
+    </script>
+    <script>
+        // Old style function definition
+        function displayOldMsg() {
+            console.log("This is the old style");
+        }
+        // New style function definition 
+        const displayNewMsg = () => {
+            console.log("This is the new style");
+        }
+    </script>
+
+
+</body>
+
 </html>
