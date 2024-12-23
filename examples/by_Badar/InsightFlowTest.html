@@ -7,6 +7,11 @@
         <button onclick="addMesssage()">Post!! </button>
         <input id="input2" type="text" placeholder="Your Header Here"/>
         <button onclick="addHeader()">Header!! </button>
+        <select id="selectorPost">
+            <option value="wwOption", onselect="checkIndex()">What went Well</option>
+            <option value="cfOption">Challenges Faced</option>
+            <option value="aicOption">Action items</option>
+        </select>
         <span id="placeholderHeader"></span>
     </head>
     <body>
@@ -21,20 +26,33 @@
         <ol>
             <li>Time restrictins</li>
             <li>Focusing at the end of the session</li>
+            <span id="placeholderCF"></span>
         </ol>
         <script>
+            const selectorItem = document.getElementById("selectorPost");
              const addMesssage = () => {
-                const spanObjectReplace = document.getElementById("placeholderWWC");
                 const newListItem = document.createElement("li");
                 newListItem.innerHTML = document.getElementById("input").value;
-                spanObjectReplace.append(newListItem);
                 
+                if(checkIndex() == "What went Well"){
+                const spanObjectReplace = document.getElementById("placeholderWWC");
+                spanObjectReplace.append(newListItem);
+
+                } else if (checkIndex() == "Challenges Faced"){
+                const spanObjectReplace = document.getElementById("placeholderCF");
+                spanObjectReplace.append(newListItem);
+                }
+
              }
              const spanHeaderReplace = document.getElementById("placeholderHeader");
              const newHeader = document.createElement("h4");
              spanHeaderReplace.append(newHeader);
              const addHeader =() => {
                 newHeader.innerHTML = document.getElementById("input2").value
+             }
+
+             const checkIndex = () =>{
+                return selectedOption = selectorItem.options[selectorItem.selectedIndex].innerHTML
              }
 
 
