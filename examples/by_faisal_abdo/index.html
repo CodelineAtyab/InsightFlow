@@ -8,6 +8,10 @@
 
 <body>
     <h1>Let's reveal what you don't know</h1>
+
+    <input id="in1" type="text" placeholder="type anything">
+    <button onclick="addMessageToList()">Post</button>
+
     <h3>What went well</h3>
     <ul id="wwc">
         <li>We had revisions</li>
@@ -27,6 +31,10 @@
         newElement.innerText = "Taking it in";
         currentElement.append(newElement);
 
+        //removing second element within list(issue-3)
+        const toBeRemoved = currentElement.querySelectorAll("li")[0];
+        toBeRemoved.remove();
+
         const new_Head_Elem = document.createElement("h3")
         new_Head_Elem.innerText = "Action list (To-Do's)"
         document.body.append(new_Head_Elem);
@@ -40,6 +48,21 @@
         listItem2.append("Didn't decide yet")
         newList.append(listItem, listItem1, listItem2);
         document.body.append(newList);
+
+        //overriding previus list(issue-2)
+        function addMessageToList() {
+            const input = document.createElement("li");
+            input.innerText = document.getElementById("in1").value;
+            currentElement.append(input);
+        }
+
+        function addition(num1, num2) {
+            return num1 + num2;
+        }
+
+        //using consice arrow function(issue-1)
+        const addition1 = (numb1, numb2) => numb1 + numb2;
+
     </script>
 </body>
 
