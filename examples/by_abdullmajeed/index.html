@@ -30,14 +30,32 @@
             <li>Focusing at the end of the session</li>
         </ul>
         <script>
+            const wwcElemObj = document.getElementById("wwc");
 
-            const displayGivenMsg = () => {
-                const usrMsgObj = document.getElementById("displayUserMsg");
 
-                const newH4 = document.createElement("h4");
-                newH4.innerHTML = document.getElementById("usrMsg").value;
 
-                usrMsgObj.append(newH4);
+        </script>
+        <script>
+            const usrMsgObj = document.getElementById("displayUserMsg");
+            const newH4 = document.createElement("h4");
+            newH4.innerHTML = "";
+            usrMsgObj.append(newH4);
+
+
+
+            // Old Style Function
+            function displayGivenMsg() {
+                console.log("");
+            }
+
+            // New Style Function
+            const displayGivenMsg = () => {  
+                console.log("");
+
+                
+            
+            //newH4.innerHTML = document.getElementById("usrMsg").value;
+                
 
             }
           
