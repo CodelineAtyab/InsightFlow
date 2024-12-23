@@ -7,12 +7,18 @@
     <h1>
       Lets Reveal What You Don't Know
     </h1>
-    
+
+    <input id="usrMsg" type="text" placeholder="Your Message Here" />
+    <button onclick="displayGivenMsg()">Post It!</button>
+    <span id="displayUserMsg"></span>
+
+    <h4 id="displayMsg"></h4>
+
     <!-- First Column -->
     <h3>
       What Went Well
     </h3>
-    <ul>
+    <ul id="wwc">
       <li>We had revisions</li>
       <li>We had tasks</li>
       <li>We are motivated</li>
@@ -27,7 +33,27 @@
       <li>Focusing on tasks at the end of the day</li>
       <li>The topics are new and requires time to understand</li>
     </ul>
-    
-    
+    <script>
+      const wwcElemObj = document.getElementById("wwc");
+      wwcElemObj.querySelectorAll("li")[1].remove();
+
+    </script>
+    <script>
+      const usrMsgObj = document.getElementById("displayUserMsg");
+      const newH4 = document.createElement("h4");
+      newH4.innerHTML = "";
+      usrMsgObj.append(newH4);
+
+
+      const displayGivenMsg = () => {
+        newH4.innerHTML = document.getElementById("usrMsg").value;
+      }
+    </script>
+    <script>
+      const newListItemObj = document.createElement("li");
+      newListItemObj.innerText = "This is added by Javascript";
+
+      wwcElemObj.append(newListItemObj);
+    </script>
   </body>
 </html>
