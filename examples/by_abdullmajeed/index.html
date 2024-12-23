@@ -1,22 +1,21 @@
+<!DOCTYPE html>
 <html>
+<head>
+    <title>
+        Insight Flow .....
+    </title>
+</head>
+<body>
     <head>
-        <title>
-            Insight FLow .....
-        </title>
-    </head>
-    <body>
-        <head>
-            <h1>
-                Let's Reveal What You Don't Know
-            </h1>
+        <h1>
+            Let's Reveal What You Don't Know
+        </h1>
 
+        <input id="usrMsg" type="text" placeholder="Your Message Here" />
+        <button onclick="displayGivenMsg()">Post It!</button>
+        <span id="displayUserMsg"></span>
 
-            <input id="usrMsg" type="text"  placeholder="Your Message Here" />
-            <button onclick="displayGivenMsg()">Post It!</button>
-            <span id="displayUserMsg"></span>
-
-            <h4 id="displayMsg"></h4>
-            
+        <h4 id="displayMsg"></h4>
 
         <h3>What went well</h3>
         <ul id="went well">
@@ -25,52 +24,39 @@
             <li>We are motivated</li>
         </ul>
         <h2>Challenges faced</h2>
-        <ul id = "Challenges">
+        <ul id="Challenges">
             <li>Time restrictions</li>
             <li>Focusing at the end of the session</li>
         </ul>
-        <script>
-            const wwcElemObj = document.getElementById("wwc");
+    </head>
 
-
-
-        </script>
-        <script>
-            const usrMsgObj = document.getElementById("displayUserMsg");
-            const newH4 = document.createElement("h4");
-            newH4.innerHTML = "";
-            usrMsgObj.append(newH4);
-
-
-
-            // Old Style Function
-            function displayGivenMsg() {
-                console.log("");
-            }
-
-            // New Style Function
-            const displayGivenMsg = () => {  
-                console.log("");
-
-                
+    <script>
+        // Function to update the existing <h4> content
+        function displayGivenMsg() {
+            const newH4 = document.getElementById("displayMsg"); 
+            const userMessage = document.getElementById("usrMsg").value; 
             
-            //newH4.innerHTML = document.getElementById("usrMsg").value;
-                
+            // Update the content of the <h4>
+            newH4.innerHTML = userMessage; 
+        }
+    </script>
 
-            }
-          
-        </script>
-        <script>
-            const obj = document.getElementById("went well")
-            const newListItemObj= document.createElement("li")
-            newListItemObj.innerText="this is new text added by javaScript"
-            obj.append(newListItemObj)
-            const challengsObj=document.getElementById("Challenges")
-            const newChalengeInList = document.createElement("li")
-            newChalengeInList.innerText="i have faced some challenge in understand this "
-            challengsObj.append(newChalengeInList)
-            const firstItem = obj.getElementsByTagName("li")[0];
-            firstItem.remove();
-        </script>
-    </body>
+    <script>
+        // Adding a new item to the "What went well" list
+        const obj = document.getElementById("went well");
+        const newListItemObj = document.createElement("li");
+        newListItemObj.innerText = "This is new text added by JavaScript";
+        obj.append(newListItemObj);
+
+        // Adding a new challenge to the "Challenges" list
+        const challengsObj = document.getElementById("Challenges");
+        const newChallengeInList = document.createElement("li");
+        newChallengeInList.innerText = "I have faced some challenge in understanding this";
+        challengsObj.append(newChallengeInList);
+
+        // Removing the first item from the "What went well" list
+        const firstItem = obj.getElementsByTagName("li")[0];
+        firstItem.remove();
+    </script>
+</body>
 </html>
