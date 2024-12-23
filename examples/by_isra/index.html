@@ -1,74 +1,79 @@
 <html>
-    <head>
-        <title>Insight Flow</title>
-    </head>
-    <body id=""mainBody>
-        <h1>
-            Let’s Uncover What You Don’t Know 
-        </h1>
 
-        <!--take the user input and display the result under-->
-        <input id= "userMsg" type="text" placeholder="Enter Text Here" /> 
-        <button onclick="displayGivenMsg()">POST</button>
+<head>
+    <title>Insight Flow</title>
+</head>
 
-        <h4 id="displayMsg"></h4>
+<body id="" mainBody>
+    <h1>
+        Let’s Uncover What You Don’t Know
+    </h1>
 
-        <!--test old and new ways of writing functions-->
-        <button onclick="dispalyMsgOld()">Call Old Style Function</button>
-        <button onclick="displayMsgNew()">Call New Style Function</button>
+    <!--take the user input and display the result under-->
+    <input id="userMsg" type="text" placeholder="Enter Text Here" />
+    <button onclick="displayGivenMsg()">POST</button>
 
-        <!--display list elements-->
-        <h2>What Went Well</h2>
-        <ul id = "wwc">
-            <li>We Had Revisions</li>
-            <li>Efficient Collaboration</li>
-            <li>We Are Motivated</li>
-        </ul>
+    <h4 id="displayMsg"></h4>
 
-        <h2>Challenges Faced</h2>
-        <ul id="cfc">
-            <li>Limited Offline Access</li>
-            <li>Time Restriction</li>
-        </ul>
-       
-        <script>
-            //This is for the what went well column
-            const wwcObj =  document.getElementById("wwc");
-            const newListItemObjectCol1 = document.createElement("li");
-            newListItemObjectCol1.innerText = "This is added by js";
-            wwcObj.append(newListItemObjectCol1);
+    <!--test old and new ways of writing functions-->
+    <button onclick="dispalyMsgOld()">Call Old Style Function</button>
+    <button onclick="displayMsgNew()">Call New Style Function</button>
 
-            //This is for the challenges faced column
-           const cfcObj = document.getElementById("cfc");
-           const newListItemObjectCol2 = document.createElement("li");
-           newListItemObjectCol2.innerText = "This is added by js";
-           cfcObj.append(newListItemObjectCol2);
+    <!--display list elements-->
+    <h2>What Went Well</h2>
+    <ul id="wwc">
+        <li>We Had Revisions</li>
+        <li>Efficient Collaboration</li>
+        <li>We Are Motivated</li>
+    </ul>
 
-           //this do delete a list 
-           //i want to delete "Efficient Collaboration"
-           const element = document.querySelectorAll("li")[1]; 
-           element.remove();
+    <h2>Challenges Faced</h2>
+    <ul id="cfc">
+        <li>Limited Offline Access</li>
+        <li>Time Restriction</li>
+    </ul>
 
-        </script>
+    <script>
+        //This is for the what went well column
+        const wwcObj = document.getElementById("wwc");
+        const newListItemObjectCol1 = document.createElement("li");
+        newListItemObjectCol1.innerText = "This is added by js";
+        wwcObj.append(newListItemObjectCol1);
 
-        <script>
-            //define a function that will display the output
-            function displayGivenMsg(){
-                const userMsgObj = document.getElementById("displayMsg");
-                const userInput = document.getElementById("userMsg").value;
-                //to overwite 
-                userMsgObj.textContent = userInput;
-            }
-        </script>
+        //This is for the challenges faced column
+        const cfcObj = document.getElementById("cfc");
+        const newListItemObjectCol2 = document.createElement("li");
+        newListItemObjectCol2.innerText = "This is added by js";
+        cfcObj.append(newListItemObjectCol2);
 
-        <script>
-            function dispalyMsgOld(){
-                console.log("old style");
-            }
+        //this do delete a list 
+        //i want to delete "Efficient Collaboration"
+        const element = document.querySelectorAll("li")[1];
+        element.remove();
 
-            const displayMsgNew = () =>{
-                console.log("new style");
-            }
-        </script>
-    </body>
+    </script>
+
+    <script>
+        //define a function that will display the output
+        function displayGivenMsg() {
+            const userMsgObj = document.getElementById("displayMsg");
+            const userInput = document.getElementById("userMsg").value;
+            //to overwite under text box
+            userMsgObj.textContent = userInput;
+            //clear the text box
+            document.getElementById("userMsg").value = "";
+        }
+    </script>
+
+    <script>
+        function dispalyMsgOld() {
+            console.log("old style");
+        }
+
+        const displayMsgNew = () => {
+            console.log("new style");
+        }
+    </script>
+</body>
+
 </html>
