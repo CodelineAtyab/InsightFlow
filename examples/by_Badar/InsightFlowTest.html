@@ -12,6 +12,7 @@
             <li>we had revisions</li>
             <li>We had tasks that gave us a good idea about HTML</li>
             <li>We are motivated</li>
+            <span id="placeholderWWC"></span>
         </ol>
         <h2 style="color: rgb(231, 39, 39);">Challenges faced</h2>
         <ol>
@@ -20,14 +21,17 @@
         </ol>
         <script>
              const addMesssage = () => {
-                const x = document.getElementById("wwc");
+                const spanObjectReplace = document.getElementById("placeholderWWC")
                 const newListItem = document.createElement("li");
-                newListItem = document.getElementById("input");
+                newListItem.innerHTML = document.getElementById("input").value;
+                spanObjectReplace.append(newListItem);
+                
+             }
+            
 
-                x.append(newListItem);
-            }
         </script>
         <script>
+
             const x = document.getElementById("wwc");
             const newListItem = document.createElement("li");
             newListItem.innerText = "ALL IS SWELL";
