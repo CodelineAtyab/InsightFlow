@@ -10,6 +10,13 @@
             <h1>
                 Let's review what you don't know
             </h1>
+            <div>
+                <input type="text" id="userMsg" placeholder="Your Message Here">
+                <button onclick="postMessage()">Post It</button>
+                <span id="displayMsg"></span>
+                
+                
+            </div>
         <h2>What went well</h2>
         <ul id="went well">
             <li>We had revision</li>
@@ -22,6 +29,19 @@
             <li>Time restrictions</li>
             <li>Focusing at the end of the session</li>
         </ul>
+       
+        <script>
+            const postMessage=() => {
+                const textBar = document.getElementById("displayMsg");
+                
+                const newH4 = document.createElement("h4");
+                newH4.innerHTML=document.getElementById("userMsg").value;   
+
+                textBar.append(newH4)
+
+           
+            }
+        </script>
 
         <script>
             const obj = document.getElementById("went well")
@@ -35,6 +55,14 @@
             newChalengeInList.innerText="i have faced some challenge in understand this "
 
             challengsObj.append(newChalengeInList)
+            
+           
+
+            const firstItem = obj.getElementsByTagName("li")[0]; 
+            firstItem.remove(); 
+
+            
+            
         </script>
     </body>
 </html>
