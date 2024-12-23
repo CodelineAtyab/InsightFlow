@@ -4,37 +4,66 @@
     </head>
     <body>
         <h1>
-           Lets Reveal What You Dont Know 
+           Let's Reveal What You Don't Know 
         </h1>
+
+        <input id="usrMsg" type="text" placeholder="Your Message Here">
+        <button onclick="displayGivenMsg()">Post</button>
+        <button onclick="displayMsgOld() ">Click Old Style</button>
+        <button onclick="displayMsgNew()">Click New Style</button>
+
+        <span id="displayUserMsg"></span>
+        <h4 id="displayMsg"></h4>
         <h1>
             What went well
         </h1>
-        <ul id = "wwc">
+        <ul id="wwc">
             <li>We had revisions</li>
             <li>We had tasks that gave us a good idea about HTML</li>
             <li>We are motivated</li>
-            
         </ul>
         <h1>
             Challenges faced 
         </h1>
-        <ul id = "cfc">
+        <ul id="cfc">
             <li>Time restrictions</li>
             <li>Focusing at the end of session</li>
-           
         </ul>
-       <script>
-        const wwcElemObj = document.getElementById("wwc");
-        const newListItmObj = document.createElement("li");
-        newListItmObj.innerText = "This is added by Javascript";
+        <script>
+            // Old style function 
+           function displayMsgOld() {
+                console.log("Old style");
+            }
 
-        wwcElemObj.append(newListItmObj);
-      
-        const cfcElementObject = document.getElementById("cfc");
-        const newListItemObj2 = document.createElement("li");
-        newListItemObj2.innerText = "This is added by Javascript";
+            // New style function 
+            const displayMsgNew = () => {
+                console.log("New style");
+            };
 
-        cfcElementObject.append(newListItemObj2);
-       </script>
+            function displayGivenMsg() {
+                const h4Element = document.getElementById("displayMsg");
+                h4Element.innerHTML = document.getElementById("usrMsg").value;
+            }
+           
+            // This is for the first column 
+            const wwcElemObj = document.getElementById("wwc");
+            const newListItmObj = document.createElement("li");
+            newListItmObj.innerText = "This is added by Javascript";
+
+            wwcElemObj.append(newListItmObj);
+
+            // This is for the second column 
+            const cfcElementObject = document.getElementById("cfc");
+            const newListItemObj2 = document.createElement("li");
+            newListItemObj2.innerText = "This is added by Javascript";
+
+            cfcElementObject.append(newListItemObj2);
+
+            // Delete the second "li" element from the "wwc" list
+            const element = document.querySelectorAll("li")[1]; 
+           element.remove();
+
+            
+        </script>
     </body>
 </html>
