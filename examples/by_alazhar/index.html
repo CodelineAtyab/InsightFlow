@@ -31,13 +31,16 @@
         </ul>
        
         <script>
-            const postMessage=() => {
-                const textBar = document.getElementById("displayMsg");
+            const textBar = document.getElementById("displayMsg");
                 
-                const newH4 = document.createElement("h4");
+            const newH4 = document.createElement("h4");
+            textBar.append(newH4)
+            
+            const postMessage=() => {
+              
                 newH4.innerHTML=document.getElementById("userMsg").value;   
 
-                textBar.append(newH4)
+          
 
            
             }
