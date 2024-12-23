@@ -17,6 +17,10 @@
                 
                 
             </div>
+            <select>
+                <option value="went well">What went well</option>
+                <option value="challenges">Challenges faced</option>
+            </select>
         <h2>What went well</h2>
         <ul id="went well">
             <li>We had revision</li>
@@ -29,6 +33,7 @@
             <li>Time restrictions</li>
             <li>Focusing at the end of the session</li>
         </ul>
+        </head>
        
         <script>
             const textBar = document.getElementById("displayMsg");
@@ -39,10 +44,6 @@
             const postMessage=() => {
               
                 newH4.innerHTML=document.getElementById("userMsg").value;   
-
-          
-
-           
             }
         </script>
 
@@ -63,9 +64,28 @@
 
             const firstItem = obj.querySelectorAll("li")[0]; 
             firstItem.remove(); 
-
-            
-            
         </script>
+        
+        <script>
+            const addToList = () => {
+                const userMsg = document.getElementById("userMsg").value;
+                const select = document.querySelector("select").value;
+                
+                
+                const listId = select === "went well" ? "went well" : select === "challenges" ? "Challenges" : "";
+                
+                
+                const list = document.getElementById(listId);
+                const newListItem = document.createElement("li");
+                
+                newListItem.innerText = userMsg;
+                list.append(newListItem);
+            }
+
+            document.querySelector("button").addEventListener("click", addToList);
+        </script>
+            
+            
+        
     </body>
 </html>
