@@ -1,0 +1,68 @@
+.columns {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-right: 50%;
+    grid-gap: 100px;
+}
+h1 {
+    font-family: cursive;
+    color: cadetblue;
+    text-align: center;
+    margin: -5px;
+}
+
+#caBoardTitle{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.boardchange{
+    text-align: center;
+}
+
+.messageEntry{
+    text-align: center;
+}
+
+#logoimg{
+    text-align: left;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+} 
+.headerblock{
+    display: grid;
+    grid-template-rows: 1;
+}
+hr{
+    margin-top: 20px;
+    height: 1.5px;
+    background-color: black;
+}
+.wentWellobject{
+    width: 270px;
+    border: solid rgb(94, 227, 194) 2px;
+    background-color: rgb(94, 227, 194);
+    margin: 5px;
+    margin-right: 50%;
+    border-radius: 5px;
+    padding-left: 2px;
+}
+.ChallengesObject{
+    width: 270px;
+    border: solid rgb(227, 94, 96) 2px;
+    background-color: rgb(227, 94, 96);
+    margin: 5px;
+    margin-right: 10%;
+    border-radius: 5px;
+    padding-left: 2px;
+}
+.actionListObject{
+    width: 270px;
+    border: solid rgb(180, 227, 94) 2px;
+    background-color: rgb(180, 227, 94);
+    margin: 5px;
+    margin-right: 50%;
+    border-radius: 5px;
+    padding-left: 2px;
+}
