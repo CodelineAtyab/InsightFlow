@@ -1,12 +1,41 @@
 <html>
   <head>
     <title>Insight Flow</title>
+    <link rel="stylesheet" href="index.css">
   </head>
   
   <body>
+    <img src="sample_logo.png" />
     <h1>
-      Lets Reveal What You Don't Know
+        Let’s Uncover What You Don’t Know
     </h1>
+
+    <hr>
+
+    <div class="container">
+        <div class="div1">
+            <span class="square"></span>
+            <h2 class="h2">What Went Well</h2>
+            <h3 class="li1">We Had Revisions</h3>
+            <h3 class="li2">Efficient Collaboration</h3>
+            <h3 class="li3">We Are Motivated</h3>
+        </div>
+
+        <div class="div2">
+            <span class="square1"></span>
+            <h2 class="h2">Challenges Faced</h2>
+            <h3 class="li4">Limited Offline Access</h3>
+            <h3 class="li5">Time Restriction</h3>
+        </div>
+
+        <div class="div3">
+            <span class="square2"></span>
+            <h2 class="h2">Action Items</h2>
+            <h3 class="li6">This item in action</h3>
+        </div>
+    </div>
+
+    <hr />
 
     <input id="usrMsg" type="text" placeholder="Your Message Here" />
     <button onclick="displayGivenMsg()">Post It!</button>
@@ -20,25 +49,6 @@
       <option value="aic">Action items</option>
     </select>
 
-    <!-- First Column -->
-    <h3>
-      What Went Well
-    </h3>
-    <ul id="wwc">
-      <li>We had revisions</li>
-      <li>We had tasks</li>
-      <li>We are motivated</li>
-    </ul>
-
-    <!-- Second Column -->
-    <h3>
-      Challenges faced
-    </h3>
-    <ul>
-      <li>Time restrictions</li>
-      <li>Focusing on tasks at the end of the day</li>
-      <li>The topics are new and requires time to understand</li>
-    </ul>
     <script>
       const wwcElemObj = document.getElementById("wwc");
       wwcElemObj.querySelectorAll("li")[1].remove();
