@@ -9,7 +9,7 @@
         <hr>
         
         <div class="boardchange">
-        <h2 id="caBoardTitle">Code architects Board</h2>
+        <span id = "caBoardTitle"></span>
         <input id="input2" type="text" placeholder="Enter Board Name Here"/>
         <button onclick="changeBoardName()">Change Board name </button>
         </div>
@@ -57,9 +57,12 @@
     </div>
         <script>
             const selectorItem = document.getElementById("selectorPost");
+            const boardName = document.createElement("h2");
+            boardName.textContent("sss");
              const addMesssage = () => {
                 const newListItem = document.createElement("h3");
                 newListItem.innerHTML = document.getElementById("input").value;
+
 
                 
                 if(checkIndex() == "What went Well"){
@@ -79,27 +82,15 @@
 
              }
              const changeBoardName =() => {
-                const boardName = document.getElementById("caBoardTitle").value;
-                boardName.append(getElementById("input2").value);
+                boardName.innerHTML = document.getElementById("input2").value;
+                const spanObjectReplace = document.getElementById("caBoardTitle");
+                spanObjectReplace.append(boardName);
              }
 
              const checkIndex = () =>{
                 return selectedOption = selectorItem.options[selectorItem.selectedIndex].innerHTML
              }
 
-
-        </script>
-        <script>
-
-            const x = document.getElementById("wwc");
-            const newListItem = document.createElement("li");
-            newListItem.innerText = "ALL IS SWELL";
-            newListItem.style = "color: rgb(231, 39, 39)";
-
-            x.append(newListItem);
-
-            const arr = x.querySelectorAll("li")[1];
-            arr.remove();
 
         </script>
     </body>
