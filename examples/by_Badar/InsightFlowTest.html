@@ -2,13 +2,16 @@
     <head>
         <link rel="stylesheet" href="style.css">
         <title>InsightFlow</title>
+        <div class="headerblock">
         <h1>Insight Flow Board</h1>
         <img id="logoimg" src="google-stadia-logo-hd4.png" alt="logo">
+        </div>
         <hr>
+        
         <div class="boardchange">
         <h2 id="caBoardTitle">Code architects Board</h2>
         <input id="input2" type="text" placeholder="Enter Board Name Here"/>
-        <button onclick="addHeader()">Change Board name </button>
+        <button onclick="changeBoardName()">Change Board name </button>
         </div>
 
         <div class="messageEntry">
@@ -22,7 +25,6 @@
         </select>
         </div>
 
-
         <span id="placeholderHeader"></span>
     </head>
     <body>
@@ -30,34 +32,56 @@
         <div>
         <h2> What Went Well</h2>
         <ol id="wwc">
-            <li>we had revisions</li>
-            <li>We had tasks that gave us a good idea about HTML</li>
-            <li>We are motivated</li>
+            <h3 class="wentWellobject">we had revisions</h3>
+            <h3 class="wentWellobject">We had tasks that gave us a good idea about HTML</h3>
+            <h3 class="wentWellobject">We are motivated</h3>
             <span id="placeholderWWC"></span>
         </ol>
         </div>
+        
         <div>
-        <h2>Challenges faced</h2>
+        <h4>Challenges faced</h4>
         <ol>
-            <li>Time restrictins</li>
-            <li>Focusing at the end of the session</li>
+            <h3>Time restrictins</h3>
+            <h3>Focusing at the end of the session</h3>
+            <span id="placeholderCF"></span>
         </ol>
         </div>
+
+        <div>
+            <h4>Action List</h4>
+            <ol>
+
+                <span id="placeholderAL"></span>
+            </ol>
+        </div>
+        
     </div>
         <script>
+            const selectorItem = document.getElementById("selectorPost");
              const addMesssage = () => {
-                const spanObjectReplace = document.getElementById("placeholderWWC");
-                const newListItem = document.createElement("li");
+                const newListItem = document.createElement("h3");
                 newListItem.innerHTML = document.getElementById("input").value;
+
+                
+                if(checkIndex() == "What went Well"){
+                newListItem.className = "wentWellobject"
+                const spanObjectReplace = document.getElementById("placeholderWWC");
                 spanObjectReplace.append(newListItem);
-                
+
+                } else if (checkIndex() == "Challenges Faced"){
+                const spanObjectReplace = document.getElementById("placeholderCF");
+                spanObjectReplace.append(newListItem);
+                }
+
              }
-             const spanHeaderReplace = document.getElementById("placeholderHeader");
-             const newHeader = document.createElement("h4");
-             spanHeaderReplace.append(newHeader);
-             const addHeader =() => {
-                document.getElementById("caBoardTitle") = document.getElementById("input2").value
-                
+             const changeBoardName =() => {
+                const boardName = document.getElementById("caBoardTitle").value;
+                boardName.append(getElementById("input2").value);
+             }
+
+             const checkIndex = () =>{
+                return selectedOption = selectorItem.options[selectorItem.selectedIndex].innerHTML
              }
 
 
@@ -67,7 +91,7 @@
             const x = document.getElementById("wwc");
             const newListItem = document.createElement("li");
             newListItem.innerText = "ALL IS SWELL";
-            newListItem.style = "color: rgb(231, 39, 39);"
+            newListItem.style = "color: rgb(231, 39, 39)";
 
             x.append(newListItem);
 

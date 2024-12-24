@@ -1,12 +1,13 @@
 .columns {
     display: grid;
     grid-template-columns: auto auto auto;
-    margin-right: 30%;
+    margin-right: 50%;
 }
 h1 {
     font-family: cursive;
     color: cadetblue;
     text-align: center;
+    margin: -5px;
 }
 
 #caBoardTitle{
@@ -24,7 +25,23 @@ h1 {
 
 #logoimg{
     text-align: left;
-
-    height: 40px;
-    width: 40px;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+} 
+.headerblock{
+    display: grid;
+    grid-template-rows: 1;
+}
+hr{
+    margin-top: 20px;
+    height: 1.5px;
+    background-color: black;
+}
+.wentWellobject{
+    width: 500px;
+    border: solid rgb(94, 227, 194) 2px;
+    background-color: rgb(94, 227, 194);
+    margin: 5px;
+    margin-right: 50%;
 }
