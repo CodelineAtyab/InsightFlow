@@ -1,25 +1,26 @@
 <html>
-    <head>
-        <title>Insight Flow</title>
+<head>
+    <title>Insight Flow</title>
     </head>
-    <body id=""mainBody>
+
+    <body id="" mainBody>
         <h1>
-            Let’s Uncover What You Don’t Know 
+            Let’s Uncover What You Don’t Know
         </h1>
 
         <!--take the user input and display the result under-->
-        <input id= "userMsg" type="text" placeholder="Enter Text Here" /> 
+        <input id="userMsg" type="text" placeholder="Enter Text Here" />
         <button onclick="displayGivenMsg()">POST</button>
 
         <h4 id="displayMsg"></h4>
-        
+
         <!--test old and new ways of writing functions-->
         <button onclick="dispalyMsgOld()">Call Old Style Function</button>
         <button onclick="displayMsgNew()">Call New Style Function</button>
 
         <!--display list elements-->
         <h2>What Went Well</h2>
-        <ul id = "wwc">
+        <ul id="wwc">
             <li>We Had Revisions</li>
             <li>Efficient Collaboration</li>
             <li>We Are Motivated</li>
@@ -30,43 +31,45 @@
             <li>Limited Offline Access</li>
             <li>Time Restriction</li>
         </ul>
-       
+
         <script>
             //This is for the what went well column
-            const wwcObj =  document.getElementById("wwc");
+            const wwcObj = document.getElementById("wwc");
             const newListItemObjectCol1 = document.createElement("li");
             newListItemObjectCol1.innerText = "This is added by js";
             wwcObj.append(newListItemObjectCol1);
 
             //This is for the challenges faced column
-           const cfcObj = document.getElementById("cfc");
-           const newListItemObjectCol2 = document.createElement("li");
-           newListItemObjectCol2.innerText = "This is added by js";
-           cfcObj.append(newListItemObjectCol2);
+            const cfcObj = document.getElementById("cfc");
+            const newListItemObjectCol2 = document.createElement("li");
+            newListItemObjectCol2.innerText = "This is added by js";
+            cfcObj.append(newListItemObjectCol2);
 
-           //this do delete a list 
-           //i want to delete "Efficient Collaboration"
-           const element = document.querySelectorAll("li")[1]; 
-           element.remove();
+            //this do delete a list 
+            //i want to delete "Efficient Collaboration"
+            const element = document.querySelectorAll("li")[1];
+            element.remove();
 
         </script>
 
         <script>
             //define a function that will display the output
-            function displayGivenMsg(){
+            function displayGivenMsg() {
                 const userMsgObj = document.getElementById("displayMsg");
                 const userInput = document.getElementById("userMsg").value;
-                //to overwite 
+                //to overwite under text box
                 userMsgObj.textContent = userInput;
+                //clear the text box
+                document.getElementById("userMsg").value = "";
             }
         </script>
 
         <script>
-            function dispalyMsgOld(){
+            function dispalyMsgOld() {
                 console.log("old style");
             }
 
-            const displayMsgNew = () =>{
+            const displayMsgNew = () => {
                 console.log("new style");
             }
         </script>
