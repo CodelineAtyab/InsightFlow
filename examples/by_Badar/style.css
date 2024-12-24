@@ -1,0 +1,30 @@
+.columns {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-right: 30%;
+}
+h1 {
+    font-family: cursive;
+    color: cadetblue;
+    text-align: center;
+}
+
+#caBoardTitle{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.boardchange{
+    text-align: center;
+}
+
+.messageEntry{
+    text-align: center;
+}
+
+#logoimg{
+    text-align: left;
+
+    height: 40px;
+    width: 40px;
+}

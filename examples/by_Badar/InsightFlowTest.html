@@ -1,27 +1,49 @@
 <html>
     <head>
+        <link rel="stylesheet" href="style.css">
         <title>InsightFlow</title>
-        <h1 style="color: rgb(95, 63, 238); font-weight: bold;" >Insight Flow Board</h1>
-        <h2>Code architects Board</h2>
+        <h1>Insight Flow Board</h1>
+        <img id="logoimg" src="google-stadia-logo-hd4.png" alt="logo">
+        <hr>
+        <div class="boardchange">
+        <h2 id="caBoardTitle">Code architects Board</h2>
+        <input id="input2" type="text" placeholder="Enter Board Name Here"/>
+        <button onclick="addHeader()">Change Board name </button>
+        </div>
+
+        <div class="messageEntry">
         <input id="input" type="text" placeholder="Your Message Here"/>
         <button onclick="addMesssage()">Post!! </button>
-        <input id="input2" type="text" placeholder="Your Header Here"/>
-        <button onclick="addHeader()">Header!! </button>
+
+        <select id="selectorPost">
+            <option value="wwOption", onselect="checkIndex()">What went Well</option>
+            <option value="cfOption">Challenges Faced</option>
+            <option value="aicOption">Action items</option>
+        </select>
+        </div>
+
+
         <span id="placeholderHeader"></span>
     </head>
     <body>
-        <h2 style="color: rgb(30, 170, 17);"> What Went Well</h2>
+    <div class="columns">
+        <div>
+        <h2> What Went Well</h2>
         <ol id="wwc">
             <li>we had revisions</li>
             <li>We had tasks that gave us a good idea about HTML</li>
             <li>We are motivated</li>
             <span id="placeholderWWC"></span>
         </ol>
-        <h2 style="color: rgb(231, 39, 39);">Challenges faced</h2>
+        </div>
+        <div>
+        <h2>Challenges faced</h2>
         <ol>
             <li>Time restrictins</li>
             <li>Focusing at the end of the session</li>
         </ol>
+        </div>
+    </div>
         <script>
              const addMesssage = () => {
                 const spanObjectReplace = document.getElementById("placeholderWWC");
@@ -34,7 +56,8 @@
              const newHeader = document.createElement("h4");
              spanHeaderReplace.append(newHeader);
              const addHeader =() => {
-                newHeader.innerHTML = document.getElementById("input2").value
+                document.getElementById("caBoardTitle") = document.getElementById("input2").value
+                
              }
 
 
