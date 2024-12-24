@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>It's all good in the hood</title>
+</head>
+
+<body>
+    <h1>Let's reveal what you don't know</h1>
+
+    <input id="in1" type="text" placeholder="type anything">
+    <button onclick="addMessageToList()">Post</button>
+
+    <h3>What went well</h3>
+    <ul id="wwc">
+        <li>We had revisions</li>
+        <li>We had tasks</li>
+        <li>We are satistfied</li>
+    </ul>
+    <h3>Challenges faced</h3>
+    <ul id="wwc">
+        <li>nothing</li>
+    </ul>
+    <!-- <h3><span style="color:green;">Patience</span> is key</h3>
+    <figure>
+        <img style="border: 3px solid gainsboro;"
+            src="https://dynaimage.cdn.cnn.com/cnn/c_fill,g_auto,w_1200,h_675,ar_16:9/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F220103133833-02-chrysler-airflow-ev-concept.jpg">
+        <figcaption style="text-align: center;">Chrysler new concept EV: Airlflow</figcaption>
+    </figure> -->
+
+    <script>
+        const currentElement = document.getElementById("wwc");
+        let newElement = document.createElement("li");
+        newElement.innerText = "Taking it in";
+        currentElement.append(newElement);
+
+        const new_Head_Elem = document.createElement("h3")
+        new_Head_Elem.innerText = "Action list (To-Do's)"
+        document.body.append(new_Head_Elem);
+
+        const newList = document.createElement("ul");
+        const listItem = document.createElement("li");
+        const listItem1 = document.createElement("li");
+        const listItem2 = document.createElement("li");
+        listItem.append("Didn't decide yet")
+        listItem1.append("Didn't decide yet")
+        listItem2.append("Didn't decide yet")
+        newList.append(listItem, listItem1, listItem2);
+        document.body.append(newList);
+    </script>
+
+    <script>
+        //removing second element within list(issue-3)
+        const toBeRemoved = currentElement.querySelectorAll("li")[0];
+        toBeRemoved.remove();
+    </script>
+
+    <script>
+        //overriding previus list(issue-2)
+        function addMessageToList() {
+            const input = document.createElement("li");
+            input.innerText = document.getElementById("in1").value;
+            currentElement.append(input);
+        }
+    </script>
+
+    <script>
+        function addition(num1, num2) {
+            return num1 + num2;
+        }
+
+        //using consice arrow function(issue-1)
+        const addition1 = (numb1, numb2) => numb1 + numb2;
+
+        console.log(addition1(2, 5));
+    </script>
+
+</body>
+
+</html>
