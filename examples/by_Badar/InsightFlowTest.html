@@ -31,29 +31,27 @@
     <div class="columns">
         <div>
         <h2> What Went Well</h2>
-        <ol id="wwc">
             <h3 class="wentWellobject">we had revisions</h3>
             <h3 class="wentWellobject">We had tasks that gave us a good idea about HTML</h3>
             <h3 class="wentWellobject">We are motivated</h3>
             <span id="placeholderWWC"></span>
-        </ol>
         </div>
         
         <div>
-        <h4>Challenges faced</h4>
-        <ol>
-            <h3>Time restrictins</h3>
-            <h3>Focusing at the end of the session</h3>
+        <h2>Challenges faced</h2>
+            <h3 class="ChallengesObject">Time restrictins</h3>
+            <h3 class="ChallengesObject">Focusing at the end of the session</h3>
             <span id="placeholderCF"></span>
-        </ol>
+
         </div>
 
         <div>
-            <h4>Action List</h4>
-            <ol>
+            <h2>Action List</h2>
+            <h3 class="actionListObject">Read more about CSS</h3>
+            <h3 class="actionListObject">work harder</h3>
+            <span id="placeholderAL"></span>
 
-                <span id="placeholderAL"></span>
-            </ol>
+
         </div>
         
     </div>
@@ -70,7 +68,12 @@
                 spanObjectReplace.append(newListItem);
 
                 } else if (checkIndex() == "Challenges Faced"){
+                newListItem.className = "ChallengesObject"
                 const spanObjectReplace = document.getElementById("placeholderCF");
+                spanObjectReplace.append(newListItem);
+                } else if(checkIndex() == "Action items"){
+                newListItem.className = "actionListObject"
+                const spanObjectReplace = document.getElementById("placeholderAL");
                 spanObjectReplace.append(newListItem);
                 }
 
