@@ -20,26 +20,24 @@
         </div>
     </section>
     <main class="main-content">
-        <section class="section went-well">
+        <section id="wentWellSection" class="section went-well">
             <h2 class="section-title">
                 <span class="dot"></span> What Went Well
             </h2>
-            <div class="card">We Had Revisions</div>
-            <div class="card">Efficient Collaboration</div>
-            <div class="card">We Are Motivated</div>
-        </section>
-        <section class="section challenges">
+            <div id="wwc-column" class="card"></div>
+            </section>
+        <section id="challengesSection" class="section challenges">
             <h2 class="section-title">
                 <span class="dot"></span> Challenges Faced
             </h2>
-            <div class="card">Limited Offline Access</div>
-            <div class="card">Time Restriction</div>
+            <div id="cfc-column" class="card"> </div>
+            
         </section>
-        <section class="section action-items">
+        <section id="actionItemSection" class="section action-items">
             <h2 class="section-title">
                 <span class="dot"></span> Action Items
             </h2>
-            <div class="card">This item in action</div>
+            <div id="aic-column" class="card"></div>
         </section>
     </main>
     <script>
@@ -52,6 +50,35 @@
             newCard.textContent = message;
             section.appendChild(newCard);
         }
+    </script>
+    <script>
+        const wwcList = ["We completed the project on time","We had a good team collaboration","We received positive feedback from the client"];
+        const cfcList = ["We faced a lot of bugs in the project","We had a lot of communication issues","We had a lot of communication issues"];
+        const aicList = ["We need to improve our testing process","We need to improve our testing process","We need to improve our testing process"];
+        
+
+
+        const wwcColumn = document.getElementById("wentWellSection")
+        const cfcColumn = document.getElementById('challengesSection');
+        const aicColumn = document.getElementById('actionItemSection');
+
+        function displayListInColumn(list, columnElement) {
+            list.forEach(item => {
+                const itemElement = document.createElement('div');
+                 itemElement.textContent = item;
+                 itemElement.classList.add('card');
+                columnElement.appendChild(itemElement);
+             
+            });
+        }
+
+
+        displayListInColumn(wwcList, wwcColumn);
+        displayListInColumn(cfcList, cfcColumn);
+        displayListInColumn(aicList, aicColumn); 
+        
+      
+
     </script>
 </body>
 </html>
