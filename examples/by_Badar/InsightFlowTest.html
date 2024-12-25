@@ -9,6 +9,7 @@
         <hr>
         
         <div class="boardchange">
+        <h2 id="codeArchitectsHeader">Code Architects Board</h2>
         <span id = "caBoardTitle"></span>
         <input id="input2" type="text" placeholder="Enter Board Name Here"/>
         <button onclick="changeBoardName()">Change Board name </button>
@@ -24,22 +25,21 @@
         </select>
 
         </div>
-
         <span id="placeholderHeader"></span>
+
     </head>
     <body>
     <div class="columns">
         <div>
-        <h2> What Went Well</h2>
-            <h3 class="wentWellobject">we had revisions</h3>
-            <h3 class="wentWellobject">We had tasks that gave us a good idea about HTML</h3>
-            <h3 class="wentWellobject">We are motivated</h3>
+        <h2 class="columnHeader"> What Went Well</h2>
+        <span id="whatWentWellColumn">
             <span id="placeholderWWC"></span>
-
+        </span>
+         
         </div>
         
         <div>
-        <h2>Challenges faced</h2>
+        <h2 class="columnHeader">Challenges faced</h2>
             <h3 class="ChallengesObject">Time restrictins</h3>
             <h3 class="ChallengesObject">Focusing at the end of the session</h3>
             <span id="placeholderCF"></span>
@@ -47,7 +47,7 @@
         </div>
 
         <div>
-            <h2>Action List</h2>
+            <h2 class="columnHeader">Action List</h2>
             <h3 class="actionListObject">Read more about CSS</h3>
             <h3 class="actionListObject">work harder</h3>
             <span id="placeholderAL"></span>
@@ -59,7 +59,11 @@
         <script>
             const selectorItem = document.getElementById("selectorPost");
             const boardName = document.createElement("h2");
-            boardName.textContent("sss");
+            
+            const whatWentWellList = document.createElement("ol");
+            const whatWentWellColumn = document.getElementById("whatWentWellColumn");
+            whatWentWellColumn.append(whatWentWellList);
+
              const addMesssage = () => {
                 const newListItem = document.createElement("h3");
                 newListItem.innerHTML = document.getElementById("input").value;
@@ -73,6 +77,7 @@
                 if(checkIndex() == "What went Well"){
                 newListItem.className = "wentWellobject"
                 const spanObjectReplace = document.getElementById("placeholderWWC");
+                // whatWentWellColumn.append(spanObjectReplace.append(newListItem));
                 spanObjectReplace.append(newListItem);
 
                 } else if (checkIndex() == "Challenges Faced"){
@@ -87,6 +92,7 @@
 
              }
              const changeBoardName =() => {
+
                 boardName.innerHTML = document.getElementById("input2").value;
                 const spanObjectReplace = document.getElementById("caBoardTitle");
                 spanObjectReplace.append(boardName);
