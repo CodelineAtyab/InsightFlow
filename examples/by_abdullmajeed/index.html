@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<head>
+    <title>Retrospective</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="logo.jpg" alt="Logo" class="logo">
+        <h1>Let’s Uncover What You Don’t Know</h1>
+    </header>
+    <section class="input-section">
+        <div>
+            <input type="text" id="userMsg" placeholder="Enter your message here" />
+            <select id="sectionSelector">
+                <option value="went-well">What Went Well</option>
+                <option value="challenges">Challenges Faced</option>
+                <option value="action-items">Action Items</option>
+            </select>
+            <button onclick="addMessage()">Add Message</button>
+        </div>
+    </section>
+    <main class="main-content">
+        <section class="section went-well">
+            <h2 class="section-title">
+                <span class="dot"></span> What Went Well
+            </h2>
+            <div id="wwc-list"></div>
+        </section>
+        <section class="section challenges">
+            <h2 class="section-title">
+                <span class="dot"></span> Challenges Faced
+            </h2>
+            <div id="cfc-list"></div>
+        </section>
+        <section class="section action-items">
+            <h2 class="section-title">
+                <span class="dot"></span> Action Items
+            </h2>
+            <div id="aic-list"></div>
+        </section>
+    </main>
+    <script>
+        
+        const wwcList = ["We Had Revisions", "Efficient Collaboration", "We Are Motivated"];
+        const cfcList = ["Limited Offline Access", "Time Restriction"];
+        const aicList = ["This item in action"];
+
+        
+        function populateLists() {
+            const wwcContainer = document.getElementById("wwc-list");
+            const cfcContainer = document.getElementById("cfc-list");
+            const aicContainer = document.getElementById("aic-list");
+
+            
+            wwcList.forEach(item => {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.textContent = item;
+                wwcContainer.appendChild(card);
+            });
+
+            
+            cfcList.forEach(item => {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.textContent = item;
+                cfcContainer.appendChild(card);
+            });
+
+            
+            aicList.forEach(item => {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.textContent = item;
+                aicContainer.appendChild(card);
+            });
+        }
+
+        
+        function addMessage() {
+            const message = document.getElementById("userMsg").value.trim();
+            const selectedSection = document.getElementById("sectionSelector").value;
+
+            if (message === "") {
+                alert("Message cannot be empty!");
+                return;
+            }
+
+            let targetContainer;
+            if (selectedSection === "went-well") {
+                targetContainer = document.getElementById("wwc-list");
+                wwcList.push(message); 
+            } else if (selectedSection === "challenges") {
+                targetContainer = document.getElementById("cfc-list");
+                cfcList.push(message); 
+            } else if (selectedSection === "action-items") {
+                targetContainer = document.getElementById("aic-list");
+                aicList.push(message); 
+            }
+
+            if (targetContainer) {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.textContent = message;
+                targetContainer.appendChild(card);
+                document.getElementById("userMsg").value = ""; 
+                console.log(`Added to ${selectedSection}: ${message}`);
+            }
+        }
+
+        
+        populateLists();
+    </script>
+</body>
+</html>
