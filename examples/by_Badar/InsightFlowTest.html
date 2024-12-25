@@ -10,6 +10,7 @@
         
         <div class="boardchange">
         <h2 id="codeArchitectsHeader">Code Architects Board</h2>
+
         <span id = "caBoardTitle"></span>
         <input id="input2" type="text" placeholder="Enter Board Name Here"/>
         <button onclick="changeBoardName()">Change Board name </button>
@@ -17,6 +18,7 @@
 
         <div class="messageEntry">
         <input id="input" type="text" placeholder="Your Message Here"/>
+        <button onclick="addMesssage()">Post!! </button>
 
         <select id="selectorPost">
             <option value="wwOption", onselect="checkIndex()">What went Well</option>
@@ -77,7 +79,6 @@
                 if(checkIndex() == "What went Well"){
                 newListItem.className = "wentWellobject"
                 const spanObjectReplace = document.getElementById("placeholderWWC");
-                // whatWentWellColumn.append(spanObjectReplace.append(newListItem));
                 spanObjectReplace.append(newListItem);
 
                 } else if (checkIndex() == "Challenges Faced"){
@@ -101,7 +102,6 @@
              const checkIndex = () =>{
                 return selectedOption = selectorItem.options[selectorItem.selectedIndex].innerHTML
              }
-
 
         </script>
     </body>
