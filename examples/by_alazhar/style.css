@@ -90,13 +90,15 @@ header h1 {
 
 
 .card {
-    padding: 18px 20px;
+    
     margin: 15px 0;
     color: #ffffff;
     font-weight: bold;
-    border-radius: 8px;
+    font-size: 20px;
+    border-radius: 100px;
     text-align: center;
-    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease ;
 }
 
 .card:hover {
@@ -164,7 +166,7 @@ header h1 {
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15); 
 }
 
-/* Responsive Design */
+
 @media (max-width: 900px) {
     .main-content {
         flex-direction: column;
