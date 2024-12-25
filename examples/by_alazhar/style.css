@@ -1,0 +1,205 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    margin: 0;
+    padding: 0;
+    background-color: #f1f5f9; 
+    color: #444;
+}
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 2px solid #d9e1e8;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+header .logo {
+    width: 90px;
+    height: 90px;
+    margin-right: 20px;
+    object-fit: contain; 
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2em;
+    font-weight: 600;
+    text-align: center;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 30px auto;
+    gap: 30px;
+    flex-wrap: wrap; 
+}
+
+
+.section {
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    transition: transform 0.3s ease; 
+}
+
+.section:hover {
+    transform: translateY(-5px); 
+}
+
+
+.section-title {
+    display: flex;
+    align-items: center;
+    font-size: 1.4em;
+    font-weight: 700;
+    margin-bottom: 25px; 
+    color: #444;
+    text-transform: capitalize;
+}
+
+.section-title .dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.went-well .section-title .dot {
+    background-color: #34A853;
+}
+
+.challenges .section-title .dot {
+    background-color: #EA2F21; 
+}
+
+.action-items .section-title .dot {
+    background-color: #9F39F8;
+}
+
+
+.card {
+    padding: 18px 20px;
+    margin: 15px 0;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+}
+
+.went-well .card {
+    background-color: burlywood;
+}
+
+.challenges .card {
+    background-color:blue;
+}
+
+.action-items .card {
+    background-color: red;
+}
+
+.input-section {
+    margin-top: 30px;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.input-section:hover {
+    transform: translateY(-5px);
+}
+
+.input-section input,
+.input-section select,
+.input-section button {
+    padding: 12px 18px;
+    font-size: 16px;
+    margin: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    width: 100%; 
+    max-width: 350px; 
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.input-section input:focus,
+.input-section select:focus,
+.input-section button:focus {
+    border-color: #0079bf;
+}
+
+.input-section button {
+    background-color: #0079bf;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-section button:hover {
+    background-color: #006f94;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15); 
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .section {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .section-title {
+        font-size: 1.3em; 
+    }
+
+    header h1 {
+        font-size: 1.6em; 
+    }
+
+    .input-section {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.4em;
+    }
+
+    .input-section input,
+    .input-section select,
+    .input-section button {
+        font-size: 14px;
+    }
+}
