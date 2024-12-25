@@ -16,13 +16,13 @@
 
         <div class="messageEntry">
         <input id="input" type="text" placeholder="Your Message Here"/>
-        <button onclick="addMesssage()">Post!! </button>
 
         <select id="selectorPost">
             <option value="wwOption", onselect="checkIndex()">What went Well</option>
             <option value="cfOption">Challenges Faced</option>
             <option value="aicOption">Action items</option>
         </select>
+
         </div>
 
         <span id="placeholderHeader"></span>
@@ -35,6 +35,7 @@
             <h3 class="wentWellobject">We had tasks that gave us a good idea about HTML</h3>
             <h3 class="wentWellobject">We are motivated</h3>
             <span id="placeholderWWC"></span>
+
         </div>
         
         <div>
@@ -62,6 +63,10 @@
              const addMesssage = () => {
                 const newListItem = document.createElement("h3");
                 newListItem.innerHTML = document.getElementById("input").value;
+
+             const checkIndex = () =>{
+                return selectedOption = selectorItem.options[selectorItem.selectedIndex].innerHTML
+             }
 
 
                 
