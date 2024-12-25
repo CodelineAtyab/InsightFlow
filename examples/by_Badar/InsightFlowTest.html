@@ -1,73 +1,101 @@
 <html>
     <head>
+        <link rel="stylesheet" href="style.css">
         <title>InsightFlow</title>
-        <h1 style="color: rgb(95, 63, 238); font-weight: bold;" >Insight Flow Board</h1>
-        <h2>Code architects Board</h2>
+        <div class="headerblock">
+        <h1>Insight Flow Board</h1>
+        <img id="logoimg" src="google-stadia-logo-hd4.png" alt="logo">
+        </div>
+        <hr>
+        
+        <div class="boardchange">
+        <span id = "caBoardTitle"></span>
+        <input id="input2" type="text" placeholder="Enter Board Name Here"/>
+        <button onclick="changeBoardName()">Change Board name </button>
+        </div>
+
+        <div class="messageEntry">
         <input id="input" type="text" placeholder="Your Message Here"/>
-        <button onclick="addMesssage()">Post!! </button>
-        <input id="input2" type="text" placeholder="Your Header Here"/>
-        <button onclick="addHeader()">Header!! </button>
+
         <select id="selectorPost">
             <option value="wwOption", onselect="checkIndex()">What went Well</option>
             <option value="cfOption">Challenges Faced</option>
             <option value="aicOption">Action items</option>
         </select>
+
+        </div>
+
         <span id="placeholderHeader"></span>
     </head>
     <body>
-        <h2 style="color: rgb(30, 170, 17);"> What Went Well</h2>
-        <ol id="wwc">
-            <li>we had revisions</li>
-            <li>We had tasks that gave us a good idea about HTML</li>
-            <li>We are motivated</li>
+    <div class="columns">
+        <div>
+        <h2> What Went Well</h2>
+            <h3 class="wentWellobject">we had revisions</h3>
+            <h3 class="wentWellobject">We had tasks that gave us a good idea about HTML</h3>
+            <h3 class="wentWellobject">We are motivated</h3>
             <span id="placeholderWWC"></span>
-        </ol>
-        <h2 style="color: rgb(231, 39, 39);">Challenges faced</h2>
-        <ol>
-            <li>Time restrictins</li>
-            <li>Focusing at the end of the session</li>
+
+        </div>
+        
+        <div>
+        <h2>Challenges faced</h2>
+            <h3 class="ChallengesObject">Time restrictins</h3>
+            <h3 class="ChallengesObject">Focusing at the end of the session</h3>
             <span id="placeholderCF"></span>
-        </ol>
+
+        </div>
+
+        <div>
+            <h2>Action List</h2>
+            <h3 class="actionListObject">Read more about CSS</h3>
+            <h3 class="actionListObject">work harder</h3>
+            <span id="placeholderAL"></span>
+
+
+        </div>
+        
+    </div>
         <script>
             const selectorItem = document.getElementById("selectorPost");
+            const boardName = document.createElement("h2");
+            boardName.textContent("sss");
              const addMesssage = () => {
-                const newListItem = document.createElement("li");
+                const newListItem = document.createElement("h3");
                 newListItem.innerHTML = document.getElementById("input").value;
-                
-                if(checkIndex() == "What went Well"){
-                const spanObjectReplace = document.getElementById("placeholderWWC");
-                spanObjectReplace.append(newListItem);
-
-                } else if (checkIndex() == "Challenges Faced"){
-                const spanObjectReplace = document.getElementById("placeholderCF");
-                spanObjectReplace.append(newListItem);
-                }
-
-             }
-             const spanHeaderReplace = document.getElementById("placeholderHeader");
-             const newHeader = document.createElement("h4");
-             spanHeaderReplace.append(newHeader);
-             const addHeader =() => {
-                newHeader.innerHTML = document.getElementById("input2").value
-             }
 
              const checkIndex = () =>{
                 return selectedOption = selectorItem.options[selectorItem.selectedIndex].innerHTML
              }
 
 
-        </script>
-        <script>
+                
+                if(checkIndex() == "What went Well"){
+                newListItem.className = "wentWellobject"
+                const spanObjectReplace = document.getElementById("placeholderWWC");
+                spanObjectReplace.append(newListItem);
 
-            const x = document.getElementById("wwc");
-            const newListItem = document.createElement("li");
-            newListItem.innerText = "ALL IS SWELL";
-            newListItem.style = "color: rgb(231, 39, 39);"
+                } else if (checkIndex() == "Challenges Faced"){
+                newListItem.className = "ChallengesObject"
+                const spanObjectReplace = document.getElementById("placeholderCF");
+                spanObjectReplace.append(newListItem);
+                } else if(checkIndex() == "Action items"){
+                newListItem.className = "actionListObject"
+                const spanObjectReplace = document.getElementById("placeholderAL");
+                spanObjectReplace.append(newListItem);
+                }
 
-            x.append(newListItem);
+             }
+             const changeBoardName =() => {
+                boardName.innerHTML = document.getElementById("input2").value;
+                const spanObjectReplace = document.getElementById("caBoardTitle");
+                spanObjectReplace.append(boardName);
+             }
 
-            const arr = x.querySelectorAll("li")[1];
-            arr.remove();
+             const checkIndex = () =>{
+                return selectedOption = selectorItem.options[selectorItem.selectedIndex].innerHTML
+             }
+
 
         </script>
     </body>
