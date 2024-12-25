@@ -5,7 +5,7 @@
 </head>
 <body>
     <header>
-        <img src="img/images.png" alt="Logo" class="logo">
+        <img src="logo.jpg" alt="Logo" class="logo">
         <h1>Let’s Uncover What You Don’t Know</h1>
     </header>
     <section class="input-section">
@@ -44,11 +44,11 @@
     </main>
     <script>
         function addMessage() {
-            const message = document.getElementById("userMsg").value;
-            const selectedSection = document.getElementById("sectionSelector").value;
-            const section = document.querySelector(`.${selectedSection}`);
-            const newCard = document.createElement("div");
-            newCard.classList.add("card");
+            const message = document.getElementById("userMsg").value; 
+            const selectedSection = document.getElementById("sectionSelector").value; 
+            const section = document.querySelector(`.${selectedSection}`); 
+            const newCard = document.createElement("div"); 
+            newCard.classList.add("card"); 
             newCard.textContent = message;
             section.appendChild(newCard);
         }
