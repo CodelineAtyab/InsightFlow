@@ -52,9 +52,11 @@
         }
     </script>
     <script>
-        const wwcList = [];
-        const cfcList = [];
-        const aicList = [];
+        const wwcList = ["We completed the project on time"];
+        const cfcList = ["We faced a lot of bugs in the project"];
+        const aicList = ["We need to improve our testing process"];
+        
+
 
         const wwcColumn = document.getElementById('wwc-column');
         const cfcColumn = document.getElementById('cfc-column');
@@ -64,10 +66,12 @@
             list.forEach(item => {
                 const itemElement = document.createElement('div');
                  itemElement.textContent = item;
+                 itemElement.classList.add('item');
                 columnElement.appendChild(itemElement);
              
             });
         }
+
 
         displayListInColumn(wwcList, wwcColumn);
         displayListInColumn(cfcList, cfcColumn);
