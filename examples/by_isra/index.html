@@ -1,77 +1,125 @@
 <html>
+
 <head>
     <title>Insight Flow</title>
-    </head>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    <body id="" mainBody>
-        <h1>
-            Let’s Uncover What You Don’t Know
-        </h1>
+<body id="" mainBody>
+    <!--section1: header of the page-->
+    <img src="img/logo.png">
+    <h1>
+        Let’s Uncover What You Don’t Know
+    </h1>
+    <hr />
+
+    <!--section2: menu-->
+    <!--add drop down menu-->
+    <h3>Please Select Column To Add Thoughts</h3>
+    <div class="optionClass">
+        <select id="colSelector">
+            <option value="wwc">What Went Well</option>
+            <option value="cfc">Challenges Faced</option>
+            <option value="aic">Action Items</option>
+        </select>
+
 
         <!--take the user input and display the result under-->
         <input id="userMsg" type="text" placeholder="Enter Text Here" />
-        <button onclick="displayGivenMsg()">POST</button>
+        <button onclick="addMsg()">POST</button>
+    </div>
+    <hr>
+    <!-- <h4 id="displayMsg"></h4> -->
 
-        <h4 id="displayMsg"></h4>
+    <!--section3: columns-->
+    <!--display list elements-->
+    <div class="columns">
+        <div class="col1">
+            <span class="square1"></span>
+            <h2>What Went Well</h2>
+            <ul id="wwc">
+                <li>We Had Revisions</li>
+                <li>Efficient Collaboration</li>
+                <li>We Are Motivated</li>
+            </ul>
+        </div>
 
-        <!--test old and new ways of writing functions-->
-        <button onclick="dispalyMsgOld()">Call Old Style Function</button>
-        <button onclick="displayMsgNew()">Call New Style Function</button>
+        <div class="col2">
+            <span class="square2"></span>
+            <h2>Challenges Faced</h2>
+            <ul id="cfc">
+                <li>Limited Offline Access</li>
+                <li>Time Restriction</li>
+            </ul>
+        </div>
 
-        <!--display list elements-->
-        <h2>What Went Well</h2>
-        <ul id="wwc">
-            <li>We Had Revisions</li>
-            <li>Efficient Collaboration</li>
-            <li>We Are Motivated</li>
-        </ul>
+        <div class="col3">
+            <span class="square3"></span>
+            <h2>Action Items</h2>
+            <ul id="aic">
+                <li>Action</li>
+            </ul>
+        </div>
 
-        <h2>Challenges Faced</h2>
-        <ul id="cfc">
-            <li>Limited Offline Access</li>
-            <li>Time Restriction</li>
-        </ul>
+    </div>
 
-        <script>
-            //This is for the what went well column
-            const wwcObj = document.getElementById("wwc");
-            const newListItemObjectCol1 = document.createElement("li");
-            newListItemObjectCol1.innerText = "This is added by js";
-            wwcObj.append(newListItemObjectCol1);
+    <!--test old and new ways of writing functions-->
+    <!-- <button onclick="dispalyMsgOld()">Call Old Style Function</button>
+    <button onclick="displayMsgNew()">Call New Style Function</button> -->
+    <script>
 
-            //This is for the challenges faced column
-            const cfcObj = document.getElementById("cfc");
-            const newListItemObjectCol2 = document.createElement("li");
-            newListItemObjectCol2.innerText = "This is added by js";
-            cfcObj.append(newListItemObjectCol2);
+        //This is for the challenges faced column
+        const cfcObj = document.getElementById("cfc");
+        const newListItemObjectCol2 = document.createElement("li");
+        newListItemObjectCol2.innerText = "This is added by js";
+        cfcObj.append(newListItemObjectCol2);
 
-            //this do delete a list 
-            //i want to delete "Efficient Collaboration"
-            const element = document.querySelectorAll("li")[1];
-            element.remove();
+        //this do delete a list 
+        //i want to delete "Efficient Collaboration"
+        const element = document.querySelectorAll("li")[1];
+        element.remove();
 
-        </script>
+    </script>
 
-        <script>
-            //define a function that will display the output
-            function displayGivenMsg() {
-                const userMsgObj = document.getElementById("displayMsg");
-                const userInput = document.getElementById("userMsg").value;
-                //to overwite under text box
-                userMsgObj.textContent = userInput;
-                //clear the text box
-                document.getElementById("userMsg").value = "";
-            }
-        </script>
+    <script>
+        //define a function that will display the output
+        function displayGivenMsg() {
+            const userMsgObj = document.getElementById("displayMsg");
+            const userInput = document.getElementById("userMsg").value;
+            //to overwite under text box
+            userMsgObj.textContent = userInput;
+            //clear the text box
+            document.getElementById("userMsg").value = "";
+        }
+    </script>
 
-        <script>
-            function dispalyMsgOld() {
-                console.log("old style");
-            }
+    <script>
+        const addMsg = () => {
+            //this will add the text in a specific column
+            const selectedColumnID = document.getElementById("colSelector").value;
+            const userInputMsg = document.getElementById("userMsg").value;
+            //find element
+            const selectedColumn = document.getElementById(selectedColumnID);
+            //add the new input to the list
+            const newListElement = document.createElement("li");
+            newListElement.textContent = userInputMsg;
 
-            const displayMsgNew = () => {
-                console.log("new style");
-            }
-        </script>
-    </body>
+            //append the text to the column
+            selectedColumn.appendChild(newListElement);
+            //clear the input
+            document.getElementById("userMsg").value = "";
+
+        }
+    </script>
+    <script>
+        function dispalyMsgOld() {
+            console.log("old style");
+        }
+
+        const displayMsgNew = () => {
+            console.log("new style");
+        }
+    </script>
+</body>
+
 </html>
