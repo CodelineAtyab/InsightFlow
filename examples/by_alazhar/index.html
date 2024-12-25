@@ -24,22 +24,20 @@
             <h2 class="section-title">
                 <span class="dot"></span> What Went Well
             </h2>
-            <div class="card">We Had Revisions</div>
-            <div class="card">Efficient Collaboration</div>
-            <div class="card">We Are Motivated</div>
-        </section>
+            <div id="wwc-column" class="card"></div>
+            </section>
         <section class="section challenges">
             <h2 class="section-title">
                 <span class="dot"></span> Challenges Faced
             </h2>
-            <div class="card">Limited Offline Access</div>
-            <div class="card">Time Restriction</div>
+            <div id="cfc-column" class="card"> </div>
+            
         </section>
         <section class="section action-items">
             <h2 class="section-title">
                 <span class="dot"></span> Action Items
             </h2>
-            <div class="card">This item in action</div>
+            <div id="aic-column" class="card"></div>
         </section>
     </main>
     <script>
@@ -52,6 +50,31 @@
             newCard.textContent = message;
             section.appendChild(newCard);
         }
+    </script>
+    <script>
+        const wwcList = [];
+        const cfcList = [];
+        const aicList = [];
+
+        const wwcColumn = document.getElementById('wwc-column');
+        const cfcColumn = document.getElementById('cfc-column');
+        const aicColumn = document.getElementById('aic-column');
+
+        function displayListInColumn(list, columnElement) {
+            list.forEach(item => {
+                const itemElement = document.createElement('div');
+                 itemElement.textContent = item;
+                columnElement.appendChild(itemElement);
+             
+            });
+        }
+
+        displayListInColumn(wwcList, wwcColumn);
+        displayListInColumn(cfcList, cfcColumn);
+        displayListInColumn(aicList, aicColumn); 
+        
+      
+
     </script>
 </body>
 </html>
