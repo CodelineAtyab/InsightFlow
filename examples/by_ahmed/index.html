@@ -1,80 +1,79 @@
+
 <html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <title>
-            Insight FLow
-        </title>
-    </head>
-    <body>
-        <head>
-            <h1>
-                Let's review what you don't know
-            </h1>
-            <div>
-                <input type="text" id="userMsg" placeholder="Your Message Here">
-                
-                <button onclick="postMessage()">Post It</button>
-                
-            </div>
-            <br>
-            <select>
-                
-                <option value="went well">What went well</option>
-                <option value="challenges">Challenges faced</option>
-                <option value="Actions">Action Items</option>
-            </select>
-        <h2>What went well</h2>
-        <ul id="went well">
-            <li>We had revision</li>
-            <li>We had tasks that gave us a good idea about HTML</li>
-            <li>We are motivated</li>
-        </ul>
-        <h2>Challenges faced</h2>
-        <ul id = "Challenges">
-            <li>Time restrictions</li>
-            <li>Focusing at the end of the session</li>
-        </ul>
-        </ul>
-        <h2>Action Items</h2>
-        <ul id = "Actions">
-            <li>Action to do</li>
-        </ul>
-        </head>
-        <script>
-            const textBar = document.getElementById("displayMsg");
-            const newH4 = document.createElement("h4");
-            textBar.append(newH4)
-            const postMessage=() => {
-                newH4.innerHTML=document.getElementById("userMsg").value;
+
+<head>
+    <title>Insight Flow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Let's review what you don't know</h1>
+    <hr>
+    <div>
+        <input type="text" id="userMsg" placeholder="Your Message Here">
+        <button>Post It</button>
+    </div>
+    <br>
+    <select>
+        <option value="went-well">What went well</option>
+        <option value="challenges">Challenges faced</option>
+        <option value="Actions">Action Items</option>
+    </select>
+
+    <div class="columns">
+        <div>
+            <span class="squareOne"></span>
+            <h2>What went well</h2>
+            <h3 id="went-well"></h3>
+            <h4 class="wentWell">We had revision</h4>
+            <h4 class="wentWell">We had tasks that gave us a good idea about HTML</h4>
+            <h4 class="wentWell">We are motivated</h4>
+        </div>
+        <div>
+            <span class="squareTwo"></span>
+            <h2>Challenges faced</h2>
+            <h3 id="Challenges"></h3>
+            <h4 class="chall">Time restrictions</h4>
+            <h4 class="chall">Focusing at the end of the session</h4>
+        </div>
+        <div>
+            <span class="squareThree"></span>
+            <h2>Action Items</h2>
+            <h3 id="Actions"></h3>
+            <h4 class="act">Action to do</h4>
+        </div>
+    </div>
+
+    <script>
+        const addToList = () => {
+            const userMsg = document.getElementById("userMsg").value;
+            const select = document.querySelector("select").value;
+
+            let listId, className;
+            if (select === "went-well") {
+                listId = "went-well";
+                className = "wentWell";
+            } else if (select === "challenges") {
+                listId = "Challenges";
+                className = "chall";
+            } else if (select === "Actions") {
+                listId = "Actions";
+                className = "act";
             }
-        </script>
-        <script>
-            const obj = document.getElementById("went well")
-            const newListItemObj= document.createElement("li")
-            newListItemObj.innerText="this is new text added by javaScript"
-            obj.append(newListItemObj)
-            const challengsObj=document.getElementById("Challenges")
-            const newChalengeInList = document.createElement("li")
-            newChalengeInList.innerText="i have faced some challenge in understand this "
-            challengsObj.append(newChalengeInList)
-            const actionsObj=document.getElementById("Actions")
-            const newactionInList = document.createElement("li")
-            newactionInList.innerText="i have faced some challenge in understand this "
-            challengsObj.append(newactionInList)
-            const firstItem = obj.querySelectorAll("li")[0];
-            firstItem.remove();
-        </script>
-        <script>
-            const addToList = () => {
-                const userMsg = document.getElementById("userMsg").value;
-                const select = document.querySelector("select").value;
-                const listId = select === "went well" ? "went well" : select === "challenges" ? "Challenges" : select === "Actions" ? "Actions": " ";
-                const list = document.getElementById(listId);
-                const newListItem = document.createElement("li");
+
+            const list = document.getElementById(listId);
+            if (list && userMsg.trim()) {
+                const newListItem = document.createElement("h4");
                 newListItem.innerText = userMsg;
+                newListItem.classList.add(className);
                 list.append(newListItem);
             }
-            document.querySelector("button").addEventListener("click", addToList);
-        </script>
-    </body>
+
+            document.getElementById("userMsg").value = "";
+        };
+
+        document.querySelector("button").addEventListener("click", addToList);
+    </script>
+</body>
+
 </html>
