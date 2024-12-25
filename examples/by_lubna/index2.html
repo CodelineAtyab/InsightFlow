@@ -30,22 +30,22 @@
         <div id="wwc">
             <span class="squareOne"></span>
             <h2>What Went Well</h2>
-            <h3 class="item1">We had revisions</h3>
+            <!-- <h3 class="item1">We had revisions</h3>
             <h3 class="item2">Efficient collaboration</h3>
-            <h3 class="item3">We are motivated</h3>
+            <h3 class="item3">We are motivated</h3> -->
         </div>
         
         <div id="cfc">
             <span class="squareTwo"></span>
             <h2>Challenges Faced</h2>
-            <h3 class="item4">Limited collaboration</h3>
-            <h3 class="item5">Time restrictions</h3>
+            <!-- <h3 class="item4">Limited collaboration</h3>
+            <h3 class="item5">Time restrictions</h3> -->
         </div>
 
         <div id="aic">
             <span class="squareThree"></span>
             <h2>Action Items</h2>
-            <h3 class="item6">This is an item in action</h3>
+            <!-- <h3 class="item6">This is an item in action</h3> -->
         </div>
     </div>
 
@@ -75,5 +75,29 @@
 };
 
     </script>
+     <script>
+    
+       const wwcList = ["We had revisions", "Efficient collaboration", "We are motivated"];
+        const cfcList = ["Limited collaboration", "Time restrictions"];
+        const aicList = ["This is an item in action"];
+
+        const addItemsToColumns = () => {
+            const addToList = (columnID, list) => {
+                const column = document.getElementById(columnID);
+                list.forEach(item => {
+                    const newElement = document.createElement("h3");
+                    newElement.textContent = item;
+                    column.appendChild(newElement);
+                });
+            };
+
+            addToList("wwc", wwcList);
+            addToList("cfc", cfcList);
+            addToList("aic", aicList);
+        };
+
+        addItemsToColumns();
+    </script>
 </body>
+
 </html>
