@@ -20,20 +20,20 @@
         </div>
     </section>
     <main class="main-content">
-        <section class="section went-well">
+        <section id="wentWellSection" class="section went-well">
             <h2 class="section-title">
                 <span class="dot"></span> What Went Well
             </h2>
             <div id="wwc-column" class="card"></div>
             </section>
-        <section class="section challenges">
+        <section id="challengesSection" class="section challenges">
             <h2 class="section-title">
                 <span class="dot"></span> Challenges Faced
             </h2>
             <div id="cfc-column" class="card"> </div>
             
         </section>
-        <section class="section action-items">
+        <section id="actionItemSection" class="section action-items">
             <h2 class="section-title">
                 <span class="dot"></span> Action Items
             </h2>
@@ -52,21 +52,21 @@
         }
     </script>
     <script>
-        const wwcList = ["We completed the project on time"];
-        const cfcList = ["We faced a lot of bugs in the project"];
-        const aicList = ["We need to improve our testing process"];
+        const wwcList = ["We completed the project on time","We had a good team collaboration","We received positive feedback from the client"];
+        const cfcList = ["We faced a lot of bugs in the project","We had a lot of communication issues","We had a lot of communication issues"];
+        const aicList = ["We need to improve our testing process","We need to improve our testing process","We need to improve our testing process"];
         
 
 
-        const wwcColumn = document.getElementById('wwc-column');
-        const cfcColumn = document.getElementById('cfc-column');
-        const aicColumn = document.getElementById('aic-column');
+        const wwcColumn = document.getElementById("wentWellSection")
+        const cfcColumn = document.getElementById('challengesSection');
+        const aicColumn = document.getElementById('actionItemSection');
 
         function displayListInColumn(list, columnElement) {
             list.forEach(item => {
                 const itemElement = document.createElement('div');
                  itemElement.textContent = item;
-                 itemElement.classList.add('item');
+                 itemElement.classList.add('card');
                 columnElement.appendChild(itemElement);
              
             });
