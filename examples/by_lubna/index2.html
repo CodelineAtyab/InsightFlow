@@ -1,69 +1,103 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Insight Flow</title>
-    </head>
-    <body>
-        <h1>
-           Let's Reveal What You Don't Know 
-        </h1>
+<head>
+    <title>Insight Flow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img src="img/trello_logo_icon_147221.webp">
+    <h1>Let's Reveal What You Don't Know</h1>
+    <hr>
 
-        <input id="usrMsg" type="text" placeholder="Your Message Here">
-        <button onclick="displayGivenMsg()">Post</button>
-        <button onclick="displayMsgOld() ">Click Old Style</button>
-        <button onclick="displayMsgNew()">Click New Style</button>
+    <!-- Corrected the ID here -->
+    <input id="userMsg" type="text" placeholder="Your Message Here">
+    <button onclick="addMsg()">Post</button>
+    <button onclick="displayMsgOld()">Click Old Style</button>
+    <button onclick="displayMsgNew()">Click New Style</button>
 
-        <span id="displayUserMsg"></span>
-        <h4 id="displayMsg"></h4>
-        <h1>
-            What went well
-        </h1>
-        <ul id="wwc">
-            <li>We had revisions</li>
-            <li>We had tasks that gave us a good idea about HTML</li>
-            <li>We are motivated</li>
-        </ul>
-        <h1>
-            Challenges faced 
-        </h1>
-        <ul id="cfc">
-            <li>Time restrictions</li>
-            <li>Focusing at the end of session</li>
-        </ul>
-        <script>
-            // Old style function 
-           function displayMsgOld() {
-                console.log("Old style");
-            }
+    <span id="displayUserMsg"></span>
+    <h4 id="displayMsg"></h4>
 
-            // New style function 
-            const displayMsgNew = () => {
-                console.log("New style");
+    <select id="colSelector">
+        <option value="wwc">What Went Well</option>
+        <option value="cfc">Challenges Faced</option>
+        <option value="aic">Action Items</option>
+    </select>
+    
+    <hr>
+    <br/><br/><br/><br/>
+    <div class="container">
+        <div id="wwc">
+            <span class="squareOne"></span>
+            <h2>What Went Well</h2>
+            <!-- <h3 class="item1">We had revisions</h3>
+            <h3 class="item2">Efficient collaboration</h3>
+            <h3 class="item3">We are motivated</h3> -->
+        </div>
+        
+        <div id="cfc">
+            <span class="squareTwo"></span>
+            <h2>Challenges Faced</h2>
+            <!-- <h3 class="item4">Limited collaboration</h3>
+            <h3 class="item5">Time restrictions</h3> -->
+        </div>
+
+        <div id="aic">
+            <span class="squareThree"></span>
+            <h2>Action Items</h2>
+            <!-- <h3 class="item6">This is an item in action</h3> -->
+        </div>
+    </div>
+
+    <script>
+        // Old style function 
+        function displayMsgOld() {
+            console.log("Old style");
+        }
+
+        // New style function 
+        const displayMsgNew = () => {
+            console.log("New style");
+        };
+
+        // Function to add the message to the selected column
+        const addMsg = () => {
+    const selectedColumnID = document.getElementById("colSelector").value;
+    const userInputMsg = document.getElementById("userMsg").value; 
+    const selectedColumn = document.getElementById(selectedColumnID);
+
+    if (userInputMsg) { 
+        const newListElement = document.createElement("h3"); 
+        newListElement.textContent = userInputMsg;
+        selectedColumn.appendChild(newListElement);
+        document.getElementById("userMsg").value = ""; 
+    }
+};
+
+    </script>
+     <script>
+    
+       const wwcList = ["We had revisions", "Efficient collaboration", "We are motivated"];
+        const cfcList = ["Limited collaboration", "Time restrictions"];
+        const aicList = ["This is an item in action"];
+
+        const addItemsToColumns = () => {
+            const addToList = (columnID, list) => {
+                const column = document.getElementById(columnID);
+                list.forEach(item => {
+                    const newElement = document.createElement("h3");
+                    newElement.textContent = item;
+                    column.appendChild(newElement);
+                });
             };
 
-            function displayGivenMsg() {
-                const h4Element = document.getElementById("displayMsg");
-                h4Element.innerHTML = document.getElementById("usrMsg").value;
-            }
-           
-            // This is for the first column 
-            const wwcElemObj = document.getElementById("wwc");
-            const newListItmObj = document.createElement("li");
-            newListItmObj.innerText = "This is added by Javascript";
+            addToList("wwc", wwcList);
+            addToList("cfc", cfcList);
+            addToList("aic", aicList);
+        };
 
-            wwcElemObj.append(newListItmObj);
+        addItemsToColumns();
+    </script>
+</body>
 
-            // This is for the second column 
-            const cfcElementObject = document.getElementById("cfc");
-            const newListItemObj2 = document.createElement("li");
-            newListItemObj2.innerText = "This is added by Javascript";
-
-            cfcElementObject.append(newListItemObj2);
-
-            // Delete the second "li" element from the "wwc" list
-            const element = document.querySelectorAll("li")[1]; 
-           element.remove();
-
-            
-        </script>
-    </body>
 </html>

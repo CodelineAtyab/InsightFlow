@@ -1,0 +1,117 @@
+<html>
+
+<head>
+    <title>Insight Flow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <img src="4658943.png" alt="Icon" class="top-left-icon">
+    <h1>Let's review what you don't know</h1>
+    <hr>
+    <div>
+        <input type="text" id="userMsg" placeholder="Your Message Here">
+        <button>Post It</button>
+    </div>
+    <h2 class="options">
+        Select a section for your feedback 
+    </h2>
+    <select>
+        <option value="went-well">What went well</option>
+        <option value="challenges">Challenges faced</option>
+        <option value="Actions">Action Items</option>
+    </select>
+    <br>
+    <br>
+
+    <div class="columns">
+        <div>
+            <span class="squareOne"></span>
+            <h2>What went well</h2>
+            <div id="went-well"></div>
+        </div>
+        <div>
+            <span class="squareTwo"></span>
+            <h2>Challenges faced</h2>
+            <div id="Challenges"></div>
+        </div>
+        <div>
+            <span class="squareThree"></span>
+            <h2>Action Items</h2>
+            <div id="Actions"></div>
+        </div>
+    </div>
+
+    <script>
+        // Predefined lists
+        const wwcList = ["We had revision", "We had tasks that gave us a good idea about HTML", "We are motivated"];
+        const cfcList = ["Time restrictions", "Focusing at the end of the session"];
+        const aicList = ["Action to do"];
+
+        // Function to populate columns
+        const populateColumns = () => {
+            const wentWellContainer = document.getElementById("went-well");
+            const challengesContainer = document.getElementById("Challenges");
+            const actionsContainer = document.getElementById("Actions");
+
+            // Populate 'What went well'
+            wwcList.forEach(item => {
+                const h4 = document.createElement("h4");
+                h4.className = "wentWell";
+                h4.innerText = item;
+                wentWellContainer.append(h4);
+            });
+
+            // Populate 'Challenges faced'
+            cfcList.forEach(item => {
+                const h4 = document.createElement("h4");
+                h4.className = "chall";
+                h4.innerText = item;
+                challengesContainer.append(h4);
+            });
+
+            // Populate 'Action Items'
+            aicList.forEach(item => {
+                const h4 = document.createElement("h4");
+                h4.className = "act";
+                h4.innerText = item;
+                actionsContainer.append(h4);
+            });
+        };
+
+        // Call populateColumns on page load
+        window.onload = populateColumns;
+
+        // Function to handle adding new feedback
+        const addToList = () => {
+            const userMsg = document.getElementById("userMsg").value;
+            const select = document.querySelector("select").value;
+
+            let listId, className;
+            if (select === "went-well") {
+                listId = "went-well";
+                className = "wentWell";
+            } else if (select === "challenges") {
+                listId = "Challenges";
+                className = "chall";
+            } else if (select === "Actions") {
+                listId = "Actions";
+                className = "act";
+            }
+
+            const list = document.getElementById(listId);
+            if (list && userMsg.trim()) {
+                const newListItem = document.createElement("h4");
+                newListItem.innerText = userMsg;
+                newListItem.classList.add(className);
+                list.append(newListItem);
+            }
+
+            document.getElementById("userMsg").value = "";
+        };
+
+        document.querySelector("button").addEventListener("click", addToList);
+    </script>
+</body>
+
+</html>
