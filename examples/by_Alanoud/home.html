@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <title>Insight Flow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <img src="img/feadback1.png">
+    <h1>
+        Let's Reveal What You Don't Know
+    </h1>
+    <hr>
+    </hr>
+    <input id="usrMsg" type="text" placeholder="Your Message Here">
+    <button onclick="displayGivenMsg()">Post</button>
+    <button onclick="displayMsgOld() ">Click Old Style</button>
+    <button onclick="displayMsgNew()">Click New Style</button>
+    <span id="displayUserMsg"></span>
+    <h4 id="displayMsg"></h4>
+    <select id="colSelector">
+        <option value="wwc">What Went Well</option>
+        <option value="cfc">Challenges faced</option>
+        <option value="aic">Action items</option>
+    </select>
+    <hr>
+    </hr>
+    <br /><br /><br /><br />
+    <div class="container">
+        <div>
+            <span class="squareOne"></span>
+            <h2>what went well</h2>
+            <h3 class="item1">we had revisions</h3>
+            <h3 class="item2">Efficient collaboration</h3>
+            <h3 class="item3">we are motivated</h3>
+        </div>
+        <div>
+            <span class="squareTwo"></span>
+            <h2>Chanllenges faced</h2>
+            <h3 class="item4">limited collaboration</h3>
+            <h3 class="item5">time restrictions</h3>
+        </div>
+        <div>
+            <span class="squareThree"></span>
+            <h2>Action items</h2>
+            <h3 class="item6">This is item in action</h3>
+        </div>
+        <script>
+            // Old style function
+            function displayMsgOld() {
+                console.log("Old style");
+            }
+            // New style function
+            const displayMsgNew = () => {
+                console.log("New style");
+            };
+            function displayGivenMsg() {
+                const h4Element = document.getElementById("displayMsg");
+                h4Element.innerHTML = document.getElementById("usrMsg").value;
+            }
+            // This is for the first column
+            const wwcElemObj = document.getElementById("wwc");
+            const newListItmObj = document.createElement("li");
+            newListItmObj.innerText = "This is added by Javascript";
+            wwcElemObj.append(newListItmObj);
+            // This is for the second column
+            const cfcElementObject = document.getElementById("cfc");
+            const newListItemObj2 = document.createElement("li");
+            newListItemObj2.innerText = "This is added by Javascript";
+            cfcElementObject.append(newListItemObj2);
+            // Delete the second "li" element from the "wwc" list
+            const element = document.querySelectorAll("li")[1];
+            element.remove();
+        </script>
+    </div>
+</body>
+
+</html>
