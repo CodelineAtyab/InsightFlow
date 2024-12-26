@@ -9,6 +9,8 @@
         <hr>
         
         <div class="boardchange">
+        <h2 id="codeArchitectsHeader">Code Architects Board</h2>
+
         <span id = "caBoardTitle"></span>
         <input id="input2" type="text" placeholder="Enter Board Name Here"/>
         <button onclick="changeBoardName()">Change Board name </button>
@@ -16,6 +18,7 @@
 
         <div class="messageEntry">
         <input id="input" type="text" placeholder="Your Message Here"/>
+        <button onclick="addMesssage()">Post!! </button>
 
         <select id="selectorPost">
             <option value="wwOption", onselect="checkIndex()">What went Well</option>
@@ -24,69 +27,98 @@
         </select>
 
         </div>
-
         <span id="placeholderHeader"></span>
+
     </head>
     <body>
     <div class="columns">
-        <div>
-        <h2> What Went Well</h2>
-            <h3 class="wentWellobject">we had revisions</h3>
-            <h3 class="wentWellobject">We had tasks that gave us a good idea about HTML</h3>
-            <h3 class="wentWellobject">We are motivated</h3>
-            <span id="placeholderWWC"></span>
-
+        <div id="whatWentWellColumn">
+            <h2 class="columnHeader"> What Went Well</h2>
+            <!-- <span id="whatWentWellColumn">
+                <span id="placeholderWWC"></span>
+            </span> -->
         </div>
         
-        <div>
-        <h2>Challenges faced</h2>
-            <h3 class="ChallengesObject">Time restrictins</h3>
-            <h3 class="ChallengesObject">Focusing at the end of the session</h3>
-            <span id="placeholderCF"></span>
-
+        <div id="challengesColumn">
+            <h2 class="columnHeader">Challenges Faced</h2>
         </div>
 
-        <div>
-            <h2>Action List</h2>
-            <h3 class="actionListObject">Read more about CSS</h3>
-            <h3 class="actionListObject">work harder</h3>
-            <span id="placeholderAL"></span>
-
-
+        <div id="actionListColumn">
+            <h2 class="columnHeader">Action List</h2>
         </div>
         
     </div>
         <script>
             const selectorItem = document.getElementById("selectorPost");
             const boardName = document.createElement("h2");
-            boardName.textContent("sss");
+            // adding to what went array and loop (start)
+            const whatWentWellList = [];
+            whatWentWellList.push("we had revisions");
+            whatWentWellList.push("We had tasks that gave us a good idea about HTM");
+            whatWentWellList.push("We are motivated");
+            const wwcDivObj = document.getElementById("whatWentWellColumn");
+            for(let i = 0; i<whatWentWellList.length; i++){
+                let newSpanObj = document.createElement("h3");
+                newSpanObj.innerHTML = whatWentWellList[i];
+                newSpanObj.className = "wentWellobject";
+                
+                wwcDivObj.append(newSpanObj);
+            }
+            // adding to what went array and loop (end)
+
+            // adding to challenges array and loop (start)
+            const challengesList = [];
+            challengesList.push("Time restrictions");
+            challengesList.push("Focusing at the end of the session");
+            const challengesDivObj = document.getElementById("challengesColumn");
+            for(let i = 0; i<challengesList.length; i++){
+                let newSpanObj = document.createElement("h3");
+                newSpanObj.innerHTML = challengesList[i];
+                newSpanObj.className = "ChallengesObject";
+                
+                challengesDivObj.append(newSpanObj);
+            }
+            // adding to challenges array and loop (end)
+
+
+            // adding to action list array and loop (start)
+            const actionList = [];
+            actionList.push("Read more about CSS");
+            actionList.push("work harder");
+            const actionDivObj = document.getElementById("actionListColumn");
+            for(let i = 0; i<actionList.length; i++){
+                let newSpanObj = document.createElement("h3");
+                newSpanObj.innerHTML = actionList[i];
+                newSpanObj.className = "actionListObject";
+                
+                actionDivObj.append(newSpanObj);
+            }
+            // adding to action array and loop (end)
+
+
              const addMesssage = () => {
                 const newListItem = document.createElement("h3");
                 newListItem.innerHTML = document.getElementById("input").value;
-
-             const checkIndex = () =>{
-                return selectedOption = selectorItem.options[selectorItem.selectedIndex].innerHTML
-             }
-
-
                 
                 if(checkIndex() == "What went Well"){
-                newListItem.className = "wentWellobject"
-                const spanObjectReplace = document.getElementById("placeholderWWC");
-                spanObjectReplace.append(newListItem);
+                newListItem.className = "wentWellobject";
+                
+                wwcDivObj.append(newListItem);
 
                 } else if (checkIndex() == "Challenges Faced"){
                 newListItem.className = "ChallengesObject"
-                const spanObjectReplace = document.getElementById("placeholderCF");
-                spanObjectReplace.append(newListItem);
+
+                challengesDivObj.append(newListItem);
+
                 } else if(checkIndex() == "Action items"){
                 newListItem.className = "actionListObject"
-                const spanObjectReplace = document.getElementById("placeholderAL");
-                spanObjectReplace.append(newListItem);
+
+                actionDivObj.append(newListItem);
                 }
 
              }
              const changeBoardName =() => {
+
                 boardName.innerHTML = document.getElementById("input2").value;
                 const spanObjectReplace = document.getElementById("caBoardTitle");
                 spanObjectReplace.append(boardName);
@@ -95,7 +127,6 @@
              const checkIndex = () =>{
                 return selectedOption = selectorItem.options[selectorItem.selectedIndex].innerHTML
              }
-
 
         </script>
     </body>
