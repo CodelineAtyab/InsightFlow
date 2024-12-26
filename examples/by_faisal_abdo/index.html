@@ -18,9 +18,9 @@
     <br>
     <div class="dropdown">
         <select id="selector">
-            <option>What went well</option>
-            <option>Challenges faced</option>
-            <option>Action list</option>
+            <option value="wwcOption">What went well</option>
+            <option value="cfOption">Challenges faced</option>
+            <option value="alOption">Action list</option>
         </select>
     </div>
 
@@ -29,18 +29,18 @@
             <span class="dot"></span>
             <h3>What went well</h3>
             <ul id="wwc">
-                <h5>We had revisions</h5>
+                <!-- <h5>We had revisions</h5>
                 <h5>We had tasks</h5>
-                <h5>We are satistfied</h5>
+                <h5>We are satistfied</h5> -->
             </ul>
         </div>
         <div class="cfSection">
             <span class="dot1"></span>
             <h3>Challenges faced</h3>
             <ul id="cf">
+                <!-- <h5>none</h5>
                 <h5>none</h5>
-                <h5>none</h5>
-                <h5>none</h5>
+                <h5>none</h5> -->
             </ul>
         </div>
 
@@ -48,9 +48,9 @@
             <span class="dot2"></span>
             <h3>Action list</h3>
             <ul id="al">
-                <h5>CSS file</h5>
+                <!-- <h5>CSS file</h5>
                 <h5>DOM</h5>
-                <h5>Responsiveness</h5>
+                <h5>Responsiveness</h5> -->
             </ul>
         </div>
     </div>
@@ -59,45 +59,54 @@
         const currentElement = document.getElementById("wwc");
         let newElement = document.createElement("h5");
         newElement.innerText = "Taking it in";
-        currentElement.append(newElement);
-
-    
+        currentElement.append(newElement);    
     </script>
 
     <script>
         //overriding previus list(issue-2)
+        const secondColumn = document.getElementById("cf");
+        const thirdColumn = document.getElementById("al");
+
         function addMessageToList() {
             const input = document.createElement("h5");
             input.innerText = document.getElementById("in1").value;
-            //currentElement.append(input);
-            const secondColumn = document.getElementById("cf");
-            const thirdColumn = document.getElementById("al");
             const userOption = document.getElementById("selector").value;
-            if (userOption === "What went well") {
-                //currentElement.append(input);
-            const secondColumn = document.getElementById("cf");
-            const thirdColumn = document.getElementById("al");
-            const userOption = document.getElementById("selector").value;
-            if (userOption === "What went well") {
+            if (userOption === "wwcOption") {
                 currentElement.append(input);
-            } else if (userOption == "Challenges faced") {
+            } else if (userOption == "cfOption") {
                 secondColumn.append(input);
-            } else if(userOption ==="Action list"){
-                thirdColumn.append(input);
-            }
-            } else if (userOption == "Challenges faced") {
-                secondColumn.append(input);
-            } else if (userOption === "Action list") {
+            } else if (userOption === "alOption") {
                 thirdColumn.append(input);
             }
         }
     </script>
 
-
+    <script>
+        //adding items to their columns
+        const wwcList = ["We had revisions", "we had tasks", "we are pleased"];
+        const cfList = ["DOM", "ForEach", "nonetheless"];
+        const alList = ["CSS file", "DOM", "ForEach loop"];
+        
+        wwcList.forEach((element) => {
+            const newElement = document.createElement("h5");
+            newElement.innerHTML = element;
+            currentElement.append(newElement);
+        })
+        cfList.forEach((element) => {
+            const newElement = document.createElement("h5");
+            newElement.innerHTML = element;
+            secondColumn.append(newElement);
+        })
+        alList.forEach((element) => {
+            const newElement = document.createElement("h5");
+            newElement.innerHTML = element;
+            thirdColumn.append(newElement);
+        })
+    </script>
 
     <script>
         //removing second element within list(issue-3)
-        const toBeRemoved = currentElement.querySelectorAll("h5")[0];
+        const toBeRemoved = currentElement.querySelectorAll("h5")[1];
         toBeRemoved.remove();
     </script>
 
