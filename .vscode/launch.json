@@ -7,8 +7,11 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open index2.html",
-            "file": "c:\\Users\\TRA-Lap\\code-arch-quotes-app\\InsightFlow\\examples\\by_abdullmajeed\\index2.html"
+
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
+
         }
     ]
 }
