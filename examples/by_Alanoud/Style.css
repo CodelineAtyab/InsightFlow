@@ -4,81 +4,92 @@ h1 {
     font-size: 35px;
     color: black;
 }
-
 img {
-    height: 65px;
-    width: 65px;
-    position: absolute;
+height: 65px;
+width: 65px;
+position: absolute;
 }
-
-hr {
+hr{
     margin-top: 2%;
 }
-
-.squareOne {
-    border: 2px green solid;
-    padding: 5px;
-    position: absolute;
-    background-color: green;
-    border-radius: 3px;
+.squareOne{
+   border: 2px green solid;
+   padding: 5px;
+   position: absolute;
+   background-color: green;
+   border-radius: 3px;
 }
-
-.squareTwo {
+.squareTwo{
     border: 2px red solid;
     padding: 5px;
     position: absolute;
     background-color: red;
     border-radius: 3px;
 }
-
-.squareThree {
+.squareThree{
     border: 2px purple solid;
     padding: 5px;
     position: absolute;
     background-color: purple;
     border-radius: 3px;
 }
-
-h2 {
+h2{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin-left: 20px;
     font-size: 14;
 }
-
-.item1,
-.item2,
-.item3 {
+.item1, .item2 , .item3{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font: size 12px;
     border: 2px green solid;
     background-color: green;
     color: white;
-    padding: 10px;
+    padding: 10px ;
     margin-right: 30%;
 }
-
-.item4,
-.item5 {
+.item4, .item5 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font: size 12px;
     border: 2px red solid;
     background-color: red;
     color: white;
-    padding: 10px;
+    padding: 10px ;
     margin-right: 30%;
 }
-
 .item6 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font: size 12px;
     border: 2px purple solid;
     background-color: purple;
     color: white;
-    padding: 10px;
+    padding: 10px ;
     margin-right: 30%;
 }
-
-.container {
+.container{
     display: grid;
     grid-template-columns: auto auto auto;
+}
+#aic h3{
+    font: size 12px;
+    border: 2px purple solid;
+    background-color: purple;
+    color: white;
+    padding: 10px ;
+    margin-right: 30%;
+}
+#cfc h3 {
+    font: size 12px;
+    border: 2px red solid;
+    background-color: red;
+    color: white;
+    padding: 10px ;
+    margin-right: 30%;
+}
+#wwc h3 {
+    font: size 12px;
+    border: 2px green solid;
+    background-color: green;
+    color: white;
+    padding: 10px ;
+    margin-right: 30%;
 }
