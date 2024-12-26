@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>It's all good in the hood</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -56,7 +57,7 @@
 
     <script>
         const currentElement = document.getElementById("wwc");
-        let newElement = document.createElement("li");
+        let newElement = document.createElement("h5");
         newElement.innerText = "Taking it in";
         currentElement.append(newElement);    
     </script>
@@ -67,7 +68,7 @@
         const thirdColumn = document.getElementById("al");
 
         function addMessageToList() {
-            const input = document.createElement("li");
+            const input = document.createElement("h5");
             input.innerText = document.getElementById("in1").value;
             const userOption = document.getElementById("selector").value;
             if (userOption === "wwcOption") {
@@ -117,7 +118,7 @@
         //using consice arrow function(issue-1)
         const addition1 = (numb1, numb2) => numb1 + numb2;
 
-        console.log(addition1(2, 5));
+        addition1(2, 5);
     </script>
 
 </body>
