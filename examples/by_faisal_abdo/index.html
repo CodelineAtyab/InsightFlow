@@ -4,65 +4,101 @@
 <head>
     <meta charset="utf-8">
     <title>It's all good in the hood</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Let's reveal what you don't know</h1>
+    <img src="images/logo2.png">
+    <h1 class="heading">Let's reveal what you don't know</h1>
+    <hr>
+    <div class="form">
+        <input id="in1" type="text" placeholder="type anything">
+        <button onclick="addMessageToList()">Post</button>
+    </div>
+    <br>
+    <div class="dropdown">
+        <select id="selector">
+            <option>What went well</option>
+            <option>Challenges faced</option>
+            <option>Action list</option>
+        </select>
+    </div>
 
-    <input id="in1" type="text" placeholder="type anything">
-    <button onclick="addMessageToList()">Post</button>
+    <div class="container">
+        <div class="wwcSection">
+            <span class="dot"></span>
+            <h3>What went well</h3>
+            <ul id="wwc">
+                <h5>We had revisions</h5>
+                <h5>We had tasks</h5>
+                <h5>We are satistfied</h5>
+            </ul>
+        </div>
+        <div class="cfSection">
+            <span class="dot1"></span>
+            <h3>Challenges faced</h3>
+            <ul id="cf">
+                <h5>none</h5>
+                <h5>none</h5>
+                <h5>none</h5>
+            </ul>
+        </div>
 
-    <h3>What went well</h3>
-    <ul id="wwc">
-        <li>We had revisions</li>
-        <li>We had tasks</li>
-        <li>We are satistfied</li>
-    </ul>
-    <h3>Challenges faced</h3>
-    <ul id="wwc">
-        <li>nothing</li>
-    </ul>
-    <!-- <h3><span style="color:green;">Patience</span> is key</h3>
-    <figure>
-        <img style="border: 3px solid gainsboro;"
-            src="https://dynaimage.cdn.cnn.com/cnn/c_fill,g_auto,w_1200,h_675,ar_16:9/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F220103133833-02-chrysler-airflow-ev-concept.jpg">
-        <figcaption style="text-align: center;">Chrysler new concept EV: Airlflow</figcaption>
-    </figure> -->
+        <div class="alSection">
+            <span class="dot2"></span>
+            <h3>Action list</h3>
+            <ul id="al">
+                <h5>CSS file</h5>
+                <h5>DOM</h5>
+                <h5>Responsiveness</h5>
+            </ul>
+        </div>
+    </div>
 
     <script>
         const currentElement = document.getElementById("wwc");
-        let newElement = document.createElement("li");
+        let newElement = document.createElement("h5");
         newElement.innerText = "Taking it in";
         currentElement.append(newElement);
 
-        const new_Head_Elem = document.createElement("h3")
-        new_Head_Elem.innerText = "Action list (To-Do's)"
-        document.body.append(new_Head_Elem);
-
-        const newList = document.createElement("ul");
-        const listItem = document.createElement("li");
-        const listItem1 = document.createElement("li");
-        const listItem2 = document.createElement("li");
-        listItem.append("Didn't decide yet")
-        listItem1.append("Didn't decide yet")
-        listItem2.append("Didn't decide yet")
-        newList.append(listItem, listItem1, listItem2);
-        document.body.append(newList);
-    </script>
-
-    <script>
-        //removing second element within list(issue-3)
-        const toBeRemoved = currentElement.querySelectorAll("li")[0];
-        toBeRemoved.remove();
+    
     </script>
 
     <script>
         //overriding previus list(issue-2)
         function addMessageToList() {
-            const input = document.createElement("li");
+            const input = document.createElement("h5");
             input.innerText = document.getElementById("in1").value;
-            currentElement.append(input);
+            //currentElement.append(input);
+            const secondColumn = document.getElementById("cf");
+            const thirdColumn = document.getElementById("al");
+            const userOption = document.getElementById("selector").value;
+            if (userOption === "What went well") {
+                //currentElement.append(input);
+            const secondColumn = document.getElementById("cf");
+            const thirdColumn = document.getElementById("al");
+            const userOption = document.getElementById("selector").value;
+            if (userOption === "What went well") {
+                currentElement.append(input);
+            } else if (userOption == "Challenges faced") {
+                secondColumn.append(input);
+            } else if(userOption ==="Action list"){
+                thirdColumn.append(input);
+            }
+            } else if (userOption == "Challenges faced") {
+                secondColumn.append(input);
+            } else if (userOption === "Action list") {
+                thirdColumn.append(input);
+            }
         }
+    </script>
+
+
+
+    <script>
+        //removing second element within list(issue-3)
+        const toBeRemoved = currentElement.querySelectorAll("h5")[0];
+        toBeRemoved.remove();
     </script>
 
     <script>
@@ -73,7 +109,7 @@
         //using consice arrow function(issue-1)
         const addition1 = (numb1, numb2) => numb1 + numb2;
 
-        console.log(addition1(2, 5));
+        addition1(2, 5);
     </script>
 
 </body>

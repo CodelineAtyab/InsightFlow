@@ -1,7 +1,6 @@
 .columns {
     display: grid;
     grid-template-columns: auto auto auto;
-    margin-right: 50%;
     grid-gap: 100px;
 }
 h1 {
@@ -65,4 +64,9 @@ hr{
     margin-right: 50%;
     border-radius: 5px;
     padding-left: 2px;
+}
+.columnHeader {
+    text-align: center;
+    margin-right: 40%;
+
 }
