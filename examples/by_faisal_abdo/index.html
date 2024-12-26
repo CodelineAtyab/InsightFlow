@@ -64,8 +64,6 @@
     
     </script>
 
-   
-
     <script>
         //overriding previus list(issue-2)
         function addMessageToList() {
@@ -76,7 +74,17 @@
             const thirdColumn = document.getElementById("al");
             const userOption = document.getElementById("selector").value;
             if (userOption === "What went well") {
+                //currentElement.append(input);
+            const secondColumn = document.getElementById("cf");
+            const thirdColumn = document.getElementById("al");
+            const userOption = document.getElementById("selector").value;
+            if (userOption === "What went well") {
                 currentElement.append(input);
+            } else if (userOption == "Challenges faced") {
+                secondColumn.append(input);
+            } else if(userOption ==="Action list"){
+                thirdColumn.append(input);
+            }
             } else if (userOption == "Challenges faced") {
                 secondColumn.append(input);
             } else if (userOption === "Action list") {
@@ -84,6 +92,8 @@
             }
         }
     </script>
+
+
 
     <script>
         //removing second element within list(issue-3)
@@ -99,7 +109,7 @@
         //using consice arrow function(issue-1)
         const addition1 = (numb1, numb2) => numb1 + numb2;
 
-        console.log(addition1(2, 5));
+        addition1(2, 5);
     </script>
 
 </body>

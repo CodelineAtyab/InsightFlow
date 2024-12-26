@@ -38,9 +38,9 @@
             <span class="square1"></span>
             <h2>What Went Well</h2>
             <ul id="wwc">
-                <li>We Had Revisions</li>
+                <!-- <li>We Had Revisions</li>
                 <li>Efficient Collaboration</li>
-                <li>We Are Motivated</li>
+                <li>We Are Motivated</li> -->
             </ul>
         </div>
 
@@ -48,8 +48,8 @@
             <span class="square2"></span>
             <h2>Challenges Faced</h2>
             <ul id="cfc">
-                <li>Limited Offline Access</li>
-                <li>Time Restriction</li>
+                <!-- <li>Limited Offline Access</li>
+                <li>Time Restriction</li> -->
             </ul>
         </div>
 
@@ -57,7 +57,7 @@
             <span class="square3"></span>
             <h2>Action Items</h2>
             <ul id="aic">
-                <li>Action</li>
+                <!-- <li>Action</li> -->
             </ul>
         </div>
 
@@ -119,6 +119,28 @@
         const displayMsgNew = () => {
             console.log("new style");
         }
+    </script>
+
+    <script>
+        //use hardcoded list to display the itesm
+        wwcList = ["We Had Revisions", "We Are Motivated"];
+        cfcList = ["Limited Offline Access", "Time Restriction"];
+        aicList = ["Action", "Action2"];
+        const createList = (list, columnId) => {
+            //get the column id
+            const columnElement = document.getElementById(columnId);
+            //iterate through the list
+            list.forEach((item) => {
+                const listItem = document.createElement("li");
+                listItem.textContent = item;
+                columnElement.appendChild(listItem);
+            });
+        };
+
+        //call the function
+        createList(wwcList, "wwc");
+        createList(cfcList, "cfc");
+        createList(aicList, "aic");
     </script>
 </body>
 
