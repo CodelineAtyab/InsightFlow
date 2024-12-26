@@ -1,6 +1,6 @@
 body{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-   
+    background-color: #ECEFF1
 }
 /* header of the page */
 h1{
@@ -17,6 +17,7 @@ img{
 
 hr{
     margin-top:  2%;
+    
 }
 
 /* meue */
@@ -28,15 +29,21 @@ hr{
 #colSelector{
     margin-right: 30%;
     padding: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
    
 }
 
 input{
     margin-right: 30%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 button{
     margin-right: 30%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    border:2px #979a9f solid; 
+    background-color:#c4c8cd;
 }
 
 /* columns */
@@ -50,8 +57,8 @@ button{
 }
 
 .square1 {
-    border: 2px green solid;
-    background-color: green;
+    border: 2px #A1D6CB solid;
+    background-color: #A1D6CB;
     padding: 6px;
     border-radius: 3px;
     position: absolute;
@@ -59,8 +66,8 @@ button{
 }
 
 .square2 {
-    border: 2px red solid;
-    background-color: red;
+    border: 2px #FF8383 solid;
+    background-color: #FF8383;
     padding: 6px;
     border-radius: 3px;
     position: absolute;
@@ -68,8 +75,8 @@ button{
 }
 
 .square3 {
-    border: 2px purple solid;
-    background-color: purple;
+    border: 2px #A19AD3 solid;
+    background-color: #A19AD3;
     padding: 6px;
     border-radius: 3px;
     position: absolute;
@@ -94,13 +101,13 @@ ul li {
 }
 
 #wwc li {
-    background-color: green;
+    background-color: #A1D6CB;
 }
 
 #cfc li {
-    background-color: red;
+    background-color: #FF8383;
 }
 
 #aic li {
-    background-color: purple;
+    background-color: #A19AD3;
 }
