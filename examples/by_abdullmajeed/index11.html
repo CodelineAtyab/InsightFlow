@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+    <title>Retrospective</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="logo.jpg" alt="Logo" class="logo">
+        <h1>Let’s Uncover What You Don’t Know</h1>
+    </header>
+    <section class="input-section">
+        <div>
+            <input type="text" id="userMsg" placeholder="Enter your message here" />
+            <select id="sectionSelector">
+                <option value="went-well">What Went Well</option>
+                <option value="challenges">Challenges Faced</option>
+                <option value="action-items">Action Items</option>
+            </select>
+            <button onclick="addMessage()">Add Message</button>
+        </div>
+    </section>
+    <main class="main-content">
+        <section class="section went-well">
+            <h2 class="section-title">
+                <span class="dot"></span> What Went Well
+            </h2>
+            <div class="card">We Had Revisions</div>
+            <div class="card">Efficient Collaboration</div>
+            <div class="card">We Are Motivated</div>
+        </section>
+        <section class="section challenges">
+            <h2 class="section-title">
+                <span class="dot"></span> Challenges Faced
+            </h2>
+            <div class="card">Limited Offline Access</div>
+            <div class="card">Time Restriction</div>
+        </section>
+        <section class="section action-items">
+            <h2 class="section-title">
+                <span class="dot"></span> Action Items
+            </h2>
+            <div class="card">This item in action</div>
+        </section>
+    </main>
+    <script>
+        function addMessage() {
+            const message = document.getElementById("userMsg").value; 
+            const selectedSection = document.getElementById("sectionSelector").value; 
+            const section = document.querySelector(`.${selectedSection}`); 
+            const newCard = document.createElement("div"); 
+            newCard.classList.add("card"); 
+            newCard.textContent = message;
+            section.appendChild(newCard);
+        }
+    </script>
+</body>
+</html>

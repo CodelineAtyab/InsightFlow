@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<head>
+    <title>Retrospective</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="img/images.png" alt="Logo" class="logo">
+        <h1>Let’s Uncover What You Don’t Know</h1>
+    </header>
+    <section class="input-section">
+        <div>
+            <input type="text" id="userMsg" placeholder="Enter your message here" />
+            <select id="sectionSelector">
+                <option value="went-well">What Went Well</option>
+                <option value="challenges">Challenges Faced</option>
+                <option value="action-items">Action Items</option>
+            </select>
+            <button onclick="addMessage()">Add Message</button>
+        </div>
+    </section>
+    <main class="main-content">
+        <section id="wentWellSection" class="section went-well">
+            <h2 class="section-title">
+                <span class="dot"></span> What Went Well
+            </h2>
+            <div id="wwc-column" class="card"></div>
+            </section>
+        <section id="challengesSection" class="section challenges">
+            <h2 class="section-title">
+                <span class="dot"></span> Challenges Faced
+            </h2>
+            <div id="cfc-column" class="card"> </div>
+            
+        </section>
+        <section id="actionItemSection" class="section action-items">
+            <h2 class="section-title">
+                <span class="dot"></span> Action Items
+            </h2>
+            <div id="aic-column" class="card"></div>
+        </section>
+    </main>
+    <script>
+        function addMessage() {
+            const message = document.getElementById("userMsg").value;
+            const selectedSection = document.getElementById("sectionSelector").value;
+            const section = document.querySelector(`.${selectedSection}`);
+            const newCard = document.createElement("div");
+            newCard.classList.add("card");
+            newCard.textContent = message;
+            section.appendChild(newCard);
+        }
+    </script>
+    <script>
+        const wwcList = ["We completed the project on time","We had a good team collaboration","We received positive feedback from the client"];
+        const cfcList = ["We faced a lot of bugs in the project","We had a lot of communication issues","We had a lot of communication issues"];
+        const aicList = ["We need to improve our testing process","We need to improve our testing process","We need to improve our testing process"];
+        
+
+
+        const wwcColumn = document.getElementById("wentWellSection")
+        const cfcColumn = document.getElementById('challengesSection');
+        const aicColumn = document.getElementById('actionItemSection');
+
+        function displayListInColumn(list, columnElement) {
+            list.forEach(item => {
+                const itemElement = document.createElement('div');
+                 itemElement.textContent = item;
+                 itemElement.classList.add('card');
+                columnElement.appendChild(itemElement);
+             
+            });
+        }
+
+
+        displayListInColumn(wwcList, wwcColumn);
+        displayListInColumn(cfcList, cfcColumn);
+        displayListInColumn(aicList, aicColumn); 
+        
+      
+
+    </script>
+</body>
+</html>
