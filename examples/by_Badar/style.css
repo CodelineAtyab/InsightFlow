@@ -1,11 +1,12 @@
 .columns {
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-gap: 100px;
+    grid-gap: 50px;
 }
 h1 {
-    font-family: cursive;
-    color: cadetblue;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(110, 146, 236);
+    text-shadow: 3px;
     text-align: center;
     margin: -5px;
 }
@@ -39,30 +40,30 @@ hr{
     background-color: black;
 }
 .wentWellobject{
-    width: 270px;
-    border: solid rgb(94, 227, 194) 2px;
-    background-color: rgb(94, 227, 194);
+    width: 400px;
+    border: solid rgb(99, 214, 151) 2px;
+    background-color: rgb(99, 214, 151);
     margin: 5px;
-    margin-right: 50%;
-    border-radius: 5px;
+    margin-right: 10%;
+    border-radius: 8px;
     padding-left: 2px;
 }
 .ChallengesObject{
-    width: 270px;
-    border: solid rgb(227, 94, 96) 2px;
-    background-color: rgb(227, 94, 96);
+    width: 400px;
+    border: solid rgb(223, 80, 82) 2px;
+    background-color: rgb(223, 80, 82);
     margin: 5px;
     margin-right: 10%;
-    border-radius: 5px;
+    border-radius: 8px;
     padding-left: 2px;
 }
 .actionListObject{
-    width: 270px;
-    border: solid rgb(180, 227, 94) 2px;
-    background-color: rgb(180, 227, 94);
+    width: 400px;
+    border: solid rgb(170, 197, 208) 2px;
+    background-color: rgb(170, 197, 208);
     margin: 5px;
-    margin-right: 50%;
-    border-radius: 5px;
+    margin-right: 10%;
+    border-radius: 8px;
     padding-left: 2px;
 }
 .columnHeader {

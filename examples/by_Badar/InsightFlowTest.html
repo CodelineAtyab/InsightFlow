@@ -50,7 +50,6 @@
     </div>
         <script>
             const selectorItem = document.getElementById("selectorPost");
-            const boardName = document.createElement("h2");
             // adding to what went array and loop (start)
             const whatWentWellList = [];
             whatWentWellList.push("we had revisions");
@@ -118,10 +117,8 @@
 
              }
              const changeBoardName =() => {
-
-                boardName.innerHTML = document.getElementById("input2").value;
-                const spanObjectReplace = document.getElementById("caBoardTitle");
-                spanObjectReplace.append(boardName);
+                const boardTitleObj = document.getElementById("codeArchitectsHeader");
+                boardTitleObj.innerHTML = document.getElementById("input2").value;
              }
 
              const checkIndex = () =>{
