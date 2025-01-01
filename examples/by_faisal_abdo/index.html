@@ -1,128 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>It's all good in the hood</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-    <img src="images/logo2.png">
+  <body>
+    <img src="images/logo2.png" />
     <h1 class="heading">Let's reveal what you don't know</h1>
-    <hr>
+    <hr />
     <div class="form">
-        <input id="in1" type="text" placeholder="type anything">
-        <button onclick="addMessageToList()">Post</button>
+      <input id="in1" type="text" placeholder="type anything" />
+      <button onclick="addMessageToList()">Post</button>
     </div>
-    <br>
+    <br />
     <div class="dropdown">
-        <select id="selector">
-            <option value="wwcOption">What went well</option>
-            <option value="cfOption">Challenges faced</option>
-            <option value="alOption">Action list</option>
-        </select>
+      <select id="selector">
+        <option value="wwcOption">What went well</option>
+        <option value="cfOption">Challenges faced</option>
+        <option value="alOption">Action list</option>
+      </select>
     </div>
 
     <div class="container">
-        <div class="wwcSection">
-            <span class="dot"></span>
-            <h3>What went well</h3>
-            <ul id="wwc">
-                <!-- <h5>We had revisions</h5>
+      <div class="wwcSection">
+        <span class="dot"></span>
+        <h3>What went well</h3>
+        <ul id="wwc">
+          <!-- <h5>We had revisions</h5>
                 <h5>We had tasks</h5>
                 <h5>We are satistfied</h5> -->
-            </ul>
-        </div>
-        <div class="cfSection">
-            <span class="dot1"></span>
-            <h3>Challenges faced</h3>
-            <ul id="cf">
-                <!-- <h5>none</h5>
+        </ul>
+      </div>
+      <div class="cfSection">
+        <span class="dot1"></span>
+        <h3>Challenges faced</h3>
+        <ul id="cf">
+          <!-- <h5>none</h5>
                 <h5>none</h5>
                 <h5>none</h5> -->
-            </ul>
-        </div>
+        </ul>
+      </div>
 
-        <div class="alSection">
-            <span class="dot2"></span>
-            <h3>Action list</h3>
-            <ul id="al">
-                <!-- <h5>CSS file</h5>
+      <div class="alSection">
+        <span class="dot2"></span>
+        <h3>Action list</h3>
+        <ul id="al">
+          <!-- <h5>CSS file</h5>
                 <h5>DOM</h5>
                 <h5>Responsiveness</h5> -->
-            </ul>
-        </div>
+        </ul>
+      </div>
     </div>
 
     <script>
-        const currentElement = document.getElementById("wwc");
-        let newElement = document.createElement("h5");
-        newElement.innerText = "Taking it in";
-        currentElement.append(newElement);    
+      const currentElement = document.getElementById("wwc");
+      let newElement = document.createElement("h5");
+      newElement.innerText = "Taking it in";
+      currentElement.append(newElement);
     </script>
 
     <script>
-        //overriding previus list(issue-2)
-        const secondColumn = document.getElementById("cf");
-        const thirdColumn = document.getElementById("al");
+      //overriding previus list(issue-2)
+      const secondColumn = document.getElementById("cf");
+      const thirdColumn = document.getElementById("al");
 
-        function addMessageToList() {
-            const input = document.createElement("h5");
-            input.innerText = document.getElementById("in1").value;
-            const userOption = document.getElementById("selector").value;
-            if (userOption === "wwcOption") {
-                currentElement.append(input);
-            } else if (userOption == "cfOption") {
-                secondColumn.append(input);
-            } else if (userOption === "alOption") {
-                thirdColumn.append(input);
-            }
+      function addMessageToList() {
+        const input = document.createElement("h5");
+        input.innerText = document.getElementById("in1").value;
+        const userOption = document.getElementById("selector").value;
+        if (userOption === "wwcOption") {
+          currentElement.append(input);
+        } else if (userOption == "cfOption") {
+          secondColumn.append(input);
+        } else if (userOption === "alOption") {
+          thirdColumn.append(input);
         }
+      }
     </script>
 
     <script>
-        //adding items to their columns
-        const wwcList = ["We had revisions", "we had tasks", "we are pleased"];
-        const cfList = ["DOM", "ForEach", "nonetheless"];
-        const alList = ["CSS file", "DOM", "ForEach loop"];
-        
-        wwcList.forEach((element) => {
-            const newElement = document.createElement("h5");
-            newElement.innerHTML = element;
-            currentElement.append(newElement);
-        })
-        cfList.forEach((element) => {
-            const newElement = document.createElement("h5");
-            newElement.innerHTML = element;
-            secondColumn.append(newElement);
-        })
-        alList.forEach((element) => {
-            const newElement = document.createElement("h5");
-            newElement.innerHTML = element;
-            thirdColumn.append(newElement);
-        })
+      //adding items to their columns
+      const wwcList = ["We had revisions", "we had tasks", "we are pleased"];
+      const cfList = ["DOM", "ForEach", "nonetheless"];
+      const alList = ["CSS file", "DOM", "ForEach loop"];
+
+      wwcList.forEach((element) => {
+        const newElement = document.createElement("h5");
+        newElement.innerHTML = element;
+        currentElement.append(newElement);
+      });
+      cfList.forEach((element) => {
+        const newElement = document.createElement("h5");
+        newElement.innerHTML = element;
+        secondColumn.append(newElement);
+      });
+      alList.forEach((element) => {
+        const newElement = document.createElement("h5");
+        newElement.innerHTML = element;
+        thirdColumn.append(newElement);
+      });
     </script>
 
     <script>
-        //removing second element within list(issue-3)
-        const toBeRemoved = currentElement.querySelectorAll("h5")[1];
-        toBeRemoved.remove();
+      //removing second element within list(issue-3)
+      const toBeRemoved = currentElement.querySelectorAll("h5")[1];
+      toBeRemoved.remove();
     </script>
 
     <script>
-        function addition(num1, num2) {
-            return num1 + num2;
-        }
+      function addition(num1, num2) {
+        return num1 + num2;
+      }
 
-        //using consice arrow function(issue-1)
-        const addition1 = (numb1, numb2) => numb1 + numb2;
+      //using consice arrow function(issue-1)
+      const addition1 = (numb1, numb2) => numb1 + numb2;
 
-        addition1(2, 5);
+      addition1(2, 5);
     </script>
 
     <script src="js/fetch.js"></script>
 
-</body>
+    <script>
+      fetch("http://localhost:8080/api/card")
+        .then((response) => response.json())
+        .then((result) => {
+            console.log(result)
 
+            result.forEach((cardObj) => {
+            const listElement = document.createElement("h5");
+            listElement.innerHTML = cardObj.content;
+            // <button class="delete-btn" onclick="deleteCard('${cardObj.id}')">🗑️</button>
+            if (cardObj.sectionId === "wwc") {
+                currentElement.append(listElement);
+            } else if (cardObj.sectionId == "cf") {
+                secondColumn.append(listElement);
+            } else if (cardObj.sectionId == "al") {
+                thirdColumn.append(listElement);
+            }
+            });
+        })
+        .catch((error) => console.error(error));
+    </script>
+  </body>
 </html>
