@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>planets name</title>
+    <title>Planets Name</title>
 </head>
 <body>
-    <h1>check consol for the data</h1>
+    <h1>Check console for the planets' data</h1>
+    <script>
+        // Fetch planets data from the Star Wars API
+        fetch("https://www.swapi.tech/api/planets")
+            .then(response => response.json())
+            .then(data => {
+                const planets = data.result;
+                planets.forEach(planet => {
+                    console.log(planet.properties.name);
+                });
+            })
+            .catch(error => console.error("Error fetching planets:", error));
+    </script>
 </body>
-<script>
-fetch("https://www.swapi.tech/api/planets")
-  .then(response => response.json())
-    .then((data) => {
-        const planets = data.results;
-        planets.forEach((planet) => {
-            console.log(planet.name);
-        });
-    });
-  </script>
 </html>
