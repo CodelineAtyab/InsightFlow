@@ -4,6 +4,7 @@
     <title>Insight Flow</title>
     <link rel="stylesheet" href="style.css">
     <script src="fetchAPI.js"></script> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body id="" mainBody>
@@ -63,86 +64,6 @@
         </div>
 
     </div>
-
-    <!--test old and new ways of writing functions-->
-    <!-- <button onclick="dispalyMsgOld()">Call Old Style Function</button>
-    <button onclick="displayMsgNew()">Call New Style Function</button> -->
-    <script>
-
-        //This is for the challenges faced column
-        const cfcObj = document.getElementById("cfc");
-        const newListItemObjectCol2 = document.createElement("li");
-        newListItemObjectCol2.innerText = "This is added by js";
-        cfcObj.append(newListItemObjectCol2);
-
-        //this do delete a list 
-        //i want to delete "Efficient Collaboration"
-        const element = document.querySelectorAll("li")[1];
-        element.remove();
-
-    </script>
-
-    <script>
-        //define a function that will display the output
-        function displayGivenMsg() {
-            const userMsgObj = document.getElementById("displayMsg");
-            const userInput = document.getElementById("userMsg").value;
-            //to overwite under text box
-            userMsgObj.textContent = userInput;
-            //clear the text box
-            document.getElementById("userMsg").value = "";
-        }
-    </script>
-
-    <script>
-        const addMsg = () => {
-            //this will add the text in a specific column
-            const selectedColumnID = document.getElementById("colSelector").value;
-            const userInputMsg = document.getElementById("userMsg").value;
-            //find element
-            const selectedColumn = document.getElementById(selectedColumnID);
-            //add the new input to the list
-            const newListElement = document.createElement("li");
-            newListElement.textContent = userInputMsg;
-
-            //append the text to the column
-            selectedColumn.appendChild(newListElement);
-            //clear the input
-            document.getElementById("userMsg").value = "";
-
-        }
-    </script>
-    <script>
-        function dispalyMsgOld() {
-            console.log("old style");
-        }
-
-        const displayMsgNew = () => {
-            console.log("new style");
-        }
-    </script>
-
-    <script>
-        //use hardcoded list to display the itesm
-        wwcList = ["We Had Revisions", "We Are Motivated"];
-        cfcList = ["Limited Offline Access", "Time Restriction"];
-        aicList = ["Action", "Action2"];
-        const createList = (list, columnId) => {
-            //get the column id
-            const columnElement = document.getElementById(columnId);
-            //iterate through the list
-            list.forEach((item) => {
-                const listItem = document.createElement("li");
-                listItem.textContent = item;
-                columnElement.appendChild(listItem);
-            });
-        };
-
-        //call the function
-        createList(wwcList, "wwc");
-        createList(cfcList, "cfc");
-        createList(aicList, "aic");
-    </script>
 </body>
 
 </html>
