@@ -1,33 +1,40 @@
 const cardURL = "http://localhost:8080/card";
 //function to add a card to a column
 const addCardInCol = (givenClassName, givenContent, cardId, parentElemObj) => {
+    //create a wrapper div for aligning content and the trash icon
     const newDiv = document.createElement("div");
-    newDiv.className = "align-heading-icon";
+    newDiv.className = "d-flex justify-content-between align-items-center py-2";
 
+    //create the list item element for content
     const newLi = document.createElement("li");
-    newLi.className = givenClassName;
-    newLi.style.display = "inline-block";
+    newLi.className = `list-group-item flex-grow-1 ${givenClassName}`;
+    newLi.style.marginRight = "10px";
+    newLi.style.color = "white";
     newLi.innerHTML = givenContent;
 
-    const delIcon = document.createElement("i");
+    //create the trash icon 
+    const delIcon = document.createElement("button");
     delIcon.id = cardId;
-    delIcon.className = "fa-regular fa-trash-can fa-lg";
+    delIcon.className = "btn btn-sm";
     delIcon.style.cursor = "pointer";
+    delIcon.innerHTML = `<i class="fa-solid fa-trash"></i>`;
 
-
+    //add the delete functionality
     delIcon.onclick = function () {
         fetch(`${cardURL}/${this.id}`, { method: "DELETE" })
             .then((response) => {
-                if (response.ok) this.parentElement.remove();
-                else console.error("Failed to delete card.");
+                if (response.ok) newDiv.remove();
+                else console.error("Failed to delete card");
             })
             .catch((error) => console.error(error));
     };
 
+    //append the elements
     newDiv.appendChild(newLi);
     newDiv.appendChild(delIcon);
     parentElemObj.appendChild(newDiv);
 };
+
 
 //add cards to specific columns
 const addToWwc = (givenContent, cardId, parentElemObj) => {
@@ -69,7 +76,7 @@ const addMsg = () => {
     const selectedColumnID = document.getElementById("colSelector").value;
     const userInputMsg = document.getElementById("userMsg").value;
     if (!userInputMsg.trim()) {
-        alert("Please enter a valid message.");
+        alert("Please enter a valid message");
         return;
     }
 
@@ -91,7 +98,7 @@ const addMsg = () => {
         body: JSON.stringify({ id: cardId, content: userInputMsg }),
     })
         .then((response) => {
-            if (!response.ok) throw new Error("Failed to save card.");
+            if (!response.ok) throw new Error("Failed to save card");
             return response.json();
         })
         .catch((error) => console.error(error));
