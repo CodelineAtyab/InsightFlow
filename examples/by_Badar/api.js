@@ -21,7 +21,7 @@ fetch("http://localhost:8080/card")
 
                     whatWentWellList.push(element.content);
                     const wwcDivObj = document.getElementById("whatWentWellColumn");
-                    let newSpanObj = document.createElement("h4");
+                    let newSpanObj = document.createElement("h5");
                     newSpanObj.setAttribute('id', element.id);
                     newSpanObj.innerHTML = `${element.content} <img src="trash.png" class="delete-btn" onclick="deleteCard('${element.id}')" >`;
                     newSpanObj.className = "wentWellobject";
@@ -34,7 +34,7 @@ fetch("http://localhost:8080/card")
                     challengesList.push(element.content);
                     const challengesDivObj = document.getElementById("challengesColumn");
 
-                    let newSpanObj = document.createElement("h4");
+                    let newSpanObj = document.createElement("h5");
                     newSpanObj.setAttribute('id', element.id)
                     newSpanObj.innerHTML = `${element.content} <img src="trash.png" class="delete-btn" onclick="deleteCard('${element.id}')" >`;
                     newSpanObj.className = "ChallengesObject";
@@ -49,7 +49,7 @@ fetch("http://localhost:8080/card")
 
                     actionList.push(element.content);
                     const actionDivObj = document.getElementById("actionListColumn");
-                    let newSpanObj = document.createElement("h4");
+                    let newSpanObj = document.createElement("h5");
                     newSpanObj.id = crypto.randomUUID();
                     newSpanObj.innerHTML = `${element.content} <img src="trash.png" class="delete-btn" onclick="deleteCard('${element.id}')" >`;
                     newSpanObj.className = "actionListObject";
@@ -72,7 +72,7 @@ const addMesssage = () => {
     if(selDropdownElemId === null || inputValue === ''){
 
     } else{
-        const newListItem = document.createElement("h4");
+        const newListItem = document.createElement("h5");
 
         if (selDropdownElemId == "wwOption") {
             newListItem.className = "wentWellobject";
