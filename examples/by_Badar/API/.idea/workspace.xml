@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fe99572e-09cd-4c27-9750-67a3fc6ee571" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/badar/example/Controller/CardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/badar/example/Controller/CardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/badar/example/Modal/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/badar/example/Modal/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../InsightFlowTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/../InsightFlowTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,16 +52,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ExampleApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/4-Springboot&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/LP-11/Documents/Frontend/project1/InsightFlow/examples/by_Badar/API&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ExampleApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feature/new-ui-changes",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/LP-11/Documents/Frontend/project1/InsightFlow/examples/by_Badar/API",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="ExampleApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.badar.example.ExampleApplication" />
