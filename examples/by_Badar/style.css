@@ -1,12 +1,11 @@
 .columns {
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-gap: 50px;
+    grid-gap: 100px;
 }
 h1 {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: rgb(110, 146, 236);
-    text-shadow: 3px;
     text-align: center;
     margin: -5px;
 }
@@ -17,7 +16,8 @@ h1 {
 }
 
 .boardchange{
-    text-align: center;
+    margin-right: 5%;
+    align-items: center;
 }
 
 .messageEntry{
@@ -34,15 +34,10 @@ h1 {
     display: grid;
     grid-template-rows: 1;
 }
-hr{
-    margin-top: 20px;
-    height: 1.5px;
-    background-color: black;
-}
 .wentWellobject{
     width: 400px;
-    border: solid rgb(99, 214, 151) 2px;
-    background-color: rgb(99, 214, 151);
+    border: solid rgb(122, 224, 255) 2px;
+    background-color: rgb(122, 224, 255);
     margin: 5px;
     margin-right: 10%;
     border-radius: 8px;
@@ -50,8 +45,8 @@ hr{
 }
 .ChallengesObject{
     width: 400px;
-    border: solid rgb(223, 80, 82) 2px;
-    background-color: rgb(223, 80, 82);
+    border: solid rgb(255, 171, 135) 2px;
+    background-color: rgb(255, 171, 135);
     margin: 5px;
     margin-right: 10%;
     border-radius: 8px;
@@ -59,8 +54,8 @@ hr{
 }
 .actionListObject{
     width: 400px;
-    border: solid rgb(170, 197, 208) 2px;
-    background-color: rgb(170, 197, 208);
+    border: solid rgb(118, 146, 179) 2px;
+    background-color: rgb(118, 146, 179);
     margin: 5px;
     margin-right: 10%;
     border-radius: 8px;
@@ -70,4 +65,22 @@ hr{
     text-align: center;
     margin-right: 40%;
 
+}
+
+.input-group{
+    margin-top: 5px;
+    align-items: center;
+}
+
+.navbar navbar-dark bg-dark{
+    align-items: center;
+}
+
+.delete-btn{
+    width: 45px;
+    margin: 5px;
+    margin-left: 50%;
+    border-radius: 8px;
+    padding-left: 2px;
+    align-items: right;
 }

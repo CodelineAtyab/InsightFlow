@@ -1,55 +1,62 @@
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <link rel="stylesheet" href="style.css">
+        <nav class="navbar navbar-light" style="background-color: #e3f2fd">
+            <nav class="navbar navbar-light" >
+            <a class="navbar-brand" href="#">
+              <img src="abstract-circle-logo-icon-free-png.png" height="40px" class="d-inline-block align-top" alt="">
+              Insight flow 
+            </a>
+            <div class="boardchange">
+                <h2 id="codeArchitectsHeader">Code Architects Board</h2>
+    
+                <input id="input2" type="text" placeholder="Enter Board Name Here"/>
+                <button type="button" class="btn btn-primary" onclick="changeBoardName()">Change Board name </button>
+                </div>
         <title>InsightFlow</title>
         <div class="headerblock">
-        <h1>Insight Flow Board</h1>
-        <img id="logoimg" src="google-stadia-logo-hd4.png" alt="logo">
-        </div>
-        <hr>
-        
-        <div class="boardchange">
-        <h2 id="codeArchitectsHeader">Code Architects Board</h2>
-
-        <span id = "caBoardTitle"></span>
-        <input id="input2" type="text" placeholder="Enter Board Name Here"/>
-        <button onclick="changeBoardName()">Change Board name </button>
         </div>
 
-        <div class="messageEntry">
-        <input id="input" type="text" placeholder="Your Message Here"/>
-        <button onclick="addMesssage()">Post!! </button>
 
-        <select id="selectorPost">
-            <option value="wwOption", onselect="checkIndex()">What went Well</option>
-            <option value="cfOption">Challenges Faced</option>
-            <option value="aicOption">Action items</option>
-        </select>
 
+        <div class="input-group needs-validation">
+            <input id="input" type="text" class="form-control" aria-label="Text input with segmented dropdown button" placeholder="Your Message Here" required />
+            <button type="button" class="btn btn-outline-secondary btn-group-sm" onclick="addMesssage()">Post!!</button>
+            <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split btn-group-sm" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="visually-hidden">Toggle Dropdown</span>
+            <ul class="dropdown-menu" id="inputGroupSelect04">
+                <li><a id ="wwOption" class="dropdown-item" href="#" value="Went Well", onclick="checkIndex(this)">Went Well</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a id ="cfOption" class="dropdown-item" href="#" value="Challenges Faced", onclick="checkIndex(this)">Challenges Faced</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a id ="aicOption" class="dropdown-item" href="#" value="aicOption", onclick="checkIndex(this)">Action items</a></li>
+
+            </ul>>
         </div>
         <span id="placeholderHeader"></span>
-
+   
     </head>
-    <body>
+    <body style="background-color: #e3f2fd">
     <div class="columns">
         <div id="whatWentWellColumn">
-            <h2 class="columnHeader"> What Went Well</h2>
-            <!-- <span id="whatWentWellColumn">
-                <span id="placeholderWWC"></span>
-            </span> -->
+            <h3 class="columnHeader"> What Went Well</h3>
+
         </div>
         
         <div id="challengesColumn">
-            <h2 class="columnHeader">Challenges Faced</h2>
+            <h3 class="columnHeader">Challenges Faced</h3>
         </div>
 
         <div id="actionListColumn">
-            <h2 class="columnHeader">Action List</h2>
+            <h3 class="columnHeader">Action List</h3>
         </div>
         
     </div>
         <script src="api.js">
-
         </script>
     </body>
 </html>
