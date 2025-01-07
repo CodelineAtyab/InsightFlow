@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <title>InsightFlow</title>
+        <link rel="icon" type="image/x-icon" href="abstract-circle-logo-icon-free-png.png">
+        <!-- <nav class="navbar navbar-light" style="background-color: #e3f2fd">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                <img src="abstract-circle-logo-icon-free-png.png" height="40px" class="d-inline-block align-top" alt="">
+                Insight flow 
+                </a>
+                <h2 id="codeArchitectsHeader">Code Architects Board</h2>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+            </div>
+        </nav>
+            
+    
+                <input id="input2" type="text" placeholder="Enter Board Name Here"/>
+                <button type="button" class="btn btn-primary" onclick="changeBoardName()">Change Board name </button>
+               
+
+        <div class="headerblock">
+        </div> -->
+
+
+
+        
+        <span id="placeholderHeader"></span>
+   
+    </head>
+    <body style="background-color: #e3f2fd">
+        <header class="py-3" style="background-color: #c6def0">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- Left side with image -->
+                    <div class="col-4 d-flex align-items-center">
+                        <img src="abstract-circle-logo-icon-free-png.png" height="40px" alt="Logo" class="me-2"> <!-- Replace with your image -->
+                        <span>Insight flow</span>
+                    </div>
+            
+                    <!-- Centered title -->
+                    <div class="col-4 text-center">
+                        <h3 id="codeArchitectsHeader">Code Architects Board</h3>
+                        <input id="input2" type="text" placeholder="Change Board Name"/>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="changeBoardName()">Change Board name </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <hr class="my-0">
+
+
+        <div class="container" style="margin-top: 10px;">
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-8">
+                <div class="d-flex align-items-center">
+                  <input id="input" type="text" class="form-control me-2" aria-label="Text input with segmented dropdown button" placeholder="Your Message Here" required />
+                  <button type="button" class="btn btn-outline-secondary btn-group-sm" onclick="addMesssage()">Post!!</button>
+                  
+                  <div class="dropdown ms-2">
+                    <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split btn-group-sm" data-bs-toggle="dropdown" aria-expanded="false">
+                      <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu" id="inputGroupSelect04">
+                      <li><a id="wwOption" class="dropdown-item" href="#" value="Went Well" onclick="checkIndex(this)">Went Well</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a id="cfOption" class="dropdown-item" href="#" value="Challenges Faced" onclick="checkIndex(this)">Challenges Faced</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a id="aicOption" class="dropdown-item" href="#" value="Action items" onclick="checkIndex(this)">Action items</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="columns">
+            <div id="whatWentWellColumn">
+                <span id="wentWellSquare"></span>
+                <h3 class="columnHeader"> What Went Well</h3>
+
+            </div>
+            
+            <div id="challengesColumn">
+                <span id="challengeSquare"></span>
+                <h3 class="columnHeader">Challenges Faced</h3>
+            </div>
+
+            <div id="actionListColumn">
+                <span id="actionSquare"></span>
+                <h3 class="columnHeader">Action List</h3>
+            </div>
+            
+        </div>
+
+        <script src="api.js">
+        </script>
+    </body>
+</html>

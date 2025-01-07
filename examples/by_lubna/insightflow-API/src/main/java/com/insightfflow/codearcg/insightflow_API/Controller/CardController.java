@@ -5,12 +5,15 @@ import com.insightfflow.codearcg.insightflow_API.Model.Card;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
+
 @RestController
 @CrossOrigin(origins = "*")
+
 @RequestMapping(path = "/api/v1/card")
 
 
@@ -19,6 +22,7 @@ public class CardController {
 
     @GetMapping
     public List<Card> getAllCards() {
+
         return cardStore;
     }
 
