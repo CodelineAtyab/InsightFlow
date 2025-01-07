@@ -5,29 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe99572e-09cd-4c27-9750-67a3fc6ee571" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/badar/example/Controller/CardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/badar/example/ExampleApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/badar/example/Modal/Card.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/badar/example/ExampleApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../InsightFlowTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/../InsightFlowTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apitTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/../apitTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../InsightFlowTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../abstract-circle-logo-icon-free-png.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../style.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,18 +27,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "badar5uk"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;badar5uk&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/CodelineAtyab/InsightFlow.git",
-    "accountId": "d95d5998-dbec-4a9e-ac02-de27887c0aa3"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/CodelineAtyab/InsightFlow.git&quot;,
+    &quot;accountId&quot;: &quot;d95d5998-dbec-4a9e-ac02-de27887c0aa3&quot;
   }
-}]]></component>
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -76,7 +59,7 @@
   "keyToString": {
     "Application.ExampleApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/4-Springboot",
+    "git-widget-placeholder": "feature/new-ui-changes",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/LP-11/Documents/Frontend/project1/InsightFlow/examples/by_Badar/API",
     "settings.editor.selected.configurable": "reference.settings.project.maven.importing"
