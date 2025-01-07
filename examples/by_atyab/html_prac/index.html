@@ -1,75 +1,409 @@
-<html>
-  <head>
-    <title>Insight Flow</title>
-    <link rel="stylesheet" href="index.css">
-  </head>
-  
-  <body>
-    <img src="sample_logo.png" />
-    <h1>
-        Let’s Uncover What You Don’t Know
-    </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Feedback Board with Drag-and-Drop</title>
+  <style>
+    /* ---------- RESET / BASE ---------- */
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background-color: #23272A; /* Discord-like dark background */
+      color: #ffffff; 
+      min-height: 100vh; 
+      display: flex; 
+      flex-direction: column;
+    }
+    h1 {
+      text-align: center; 
+      padding: 1rem 0;
+    }
 
-    <hr>
+    /* ---------- LAYOUT ---------- */
+    .columns-container {
+      display: flex; 
+      justify-content: center; 
+      gap: 1rem; 
+      padding: 1rem;
+    }
 
-    <div class="container">
-        <div class="div1">
-            <span class="square"></span>
-            <h2 class="h2">What Went Well</h2>
-            <h3 class="li1">We Had Revisions</h3>
-            <h3 class="li2">Efficient Collaboration</h3>
-            <h3 class="li3">We Are Motivated</h3>
-        </div>
+    .column {
+      background-color: #2C2F33; 
+      flex: 1 1 300px; 
+      min-height: 60vh; 
+      border-radius: 4px; 
+      display: flex; 
+      flex-direction: column; 
+      overflow: hidden;
+    }
 
-        <div class="div2">
-            <span class="square1"></span>
-            <h2 class="h2">Challenges Faced</h2>
-            <h3 class="li4">Limited Offline Access</h3>
-            <h3 class="li5">Time Restriction</h3>
-        </div>
+    .column-title {
+      background-color: #36393F; 
+      padding: 0.75rem; 
+      text-align: center; 
+      font-weight: bold; 
+      border-bottom: 1px solid #444;
+    }
 
-        <div class="div3">
-            <span class="square2"></span>
-            <h2 class="h2">Action Items</h2>
-            <h3 class="li6">This item in action</h3>
-        </div>
+    .cards {
+      padding: 0.5rem; 
+      flex: 1; 
+      overflow-y: auto; 
+      border: 2px dashed transparent; 
+      transition: border 0.2s;
+    }
+    .cards.drag-over {
+      /* Highlight column on drag-over */
+      border: 2px dashed #43b581;
+    }
+
+    /* ---------- CARD ---------- */
+    .card {
+      background-color: #464B50; 
+      margin: 0.5rem 0; 
+      padding: 0.75rem; 
+      border-radius: 4px; 
+      position: relative;
+    }
+    .card-content {
+      margin-right: 2rem; /* space for delete icon */
+      white-space: pre-wrap;
+    }
+
+    /* Delete button in top-right corner */
+    .delete-btn {
+      position: absolute; 
+      top: 0.5rem; 
+      right: 0.5rem; 
+      cursor: pointer; 
+      font-size: 1rem; 
+      background: none; 
+      border: none; 
+      color: #ff6666;
+    }
+
+    /* ---------- ADD (PLUS) BUTTON & INPUT FORM ---------- */
+    .column-footer {
+      background-color: #36393F; 
+      padding: 0.5rem; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      border-top: 1px solid #444;
+    }
+
+    .add-btn {
+      cursor: pointer; 
+      background: none; 
+      border: none; 
+      font-size: 1.2rem; 
+      color: #43b581;
+    }
+
+    .input-container {
+      display: none; 
+      flex-direction: column; 
+      background-color: #464B50; 
+      padding: 0.5rem; 
+      border-radius: 4px; 
+      margin: 0.5rem;
+    }
+
+    .input-container textarea {
+      margin-bottom: 0.5rem; 
+      padding: 0.5rem; 
+      border-radius: 4px; 
+      border: none; 
+      outline: none; 
+      resize: vertical;
+    }
+
+    .post-btn {
+      align-self: flex-end; 
+      background-color: #43b581; 
+      border: none; 
+      padding: 0.5rem 1rem; 
+      border-radius: 4px; 
+      color: #fff; 
+      cursor: pointer;
+    }
+
+    /* Scrollbar styling (optional) */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #2C2F33;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #555; 
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Feedback Board</h1>
+
+  <!-- COLUMN LAYOUT -->
+  <div class="columns-container">
+    <!-- Went Well Column -->
+    <div class="column" data-column="wwc">
+      <div class="column-title">Went Well</div>
+      <div class="cards" id="wwcColumn"></div>
+      <div class="column-footer">
+        <button class="add-btn" data-column="wwc">+ Add</button>
+      </div>
     </div>
 
-    <hr />
+    <!-- Challenges Faced Column -->
+    <div class="column" data-column="cfc">
+      <div class="column-title">Challenges Faced</div>
+      <div class="cards" id="cfcColumn"></div>
+      <div class="column-footer">
+        <button class="add-btn" data-column="cfc">+ Add</button>
+      </div>
+    </div>
 
-    <input id="usrMsg" type="text" placeholder="Your Message Here" />
-    <button onclick="displayGivenMsg()">Post It!</button>
-    <span id="displayUserMsg"></span>
-    <h4 id="displayMsg"></h4>
+    <!-- Action Items Column -->
+    <div class="column" data-column="aic">
+      <div class="column-title">Action Items</div>
+      <div class="cards" id="aicColumn"></div>
+      <div class="column-footer">
+        <button class="add-btn" data-column="aic">+ Add</button>
+      </div>
+    </div>
+  </div>
 
-    <!-- Add a drop down menu to select available columns -->
-    <select id="colSelector">
-      <option value="wwc">Went Well</option>
-      <option value="cfc">Challenges faced</option>
-      <option value="aic">Action items</option>
-    </select>
+  <!-- HIDDEN TEMPLATE FOR ADDING A NEW CARD -->
+  <div id="input-template" class="input-container">
+    <textarea placeholder="Enter card content..."></textarea>
+    <button class="post-btn">Post</button>
+  </div>
 
-    <script>
-      const wwcElemObj = document.getElementById("wwc");
-      wwcElemObj.querySelectorAll("li")[1].remove();
+  <script>
+    const baseApiUrl = "http://localhost:8080/api/v1/card";
 
-    </script>
-    <script>
-      const usrMsgObj = document.getElementById("displayUserMsg");
-      const newH4 = document.createElement("h4");
-      newH4.innerHTML = "";
-      usrMsgObj.append(newH4);
+    // Column container references
+    const wwcColumn = document.getElementById("wwcColumn");
+    const cfcColumn = document.getElementById("cfcColumn");
+    const aicColumn = document.getElementById("aicColumn");
 
+    // On page load, get all cards + setup drag-and-drop events
+    window.addEventListener("DOMContentLoaded", () => {
+      fetchAllCards();
+      setupDragAndDrop();
+    });
 
-      const displayGivenMsg = () => {
-        newH4.innerHTML = document.getElementById("usrMsg").value;
+    // Fetch all cards and place them in their respective columns
+    function fetchAllCards() {
+      fetch(baseApiUrl)
+        .then((response) => response.json())
+        .then((cards) => {
+          // Clear existing columns
+          wwcColumn.innerHTML = "";
+          cfcColumn.innerHTML = "";
+          aicColumn.innerHTML = "";
+
+          cards.forEach((card) => placeCardInColumn(card));
+        })
+        .catch((error) => {
+          console.error("Error fetching cards:", error);
+        });
+    }
+
+    // Creates DOM element for a card and appends it to the right column
+    function placeCardInColumn(cardData) {
+      const prefix = cardData.id.split("_")[0];
+      let columnElement;
+
+      if (prefix === "wwc") {
+        columnElement = wwcColumn;
+      } else if (prefix === "cfc") {
+        columnElement = cfcColumn;
+      } else if (prefix === "aic") {
+        columnElement = aicColumn;
+      } else {
+        return;
       }
-    </script>
-    <script>
-      const newListItemObj = document.createElement("li");
-      newListItemObj.innerText = "This is added by Javascript";
 
-      wwcElemObj.append(newListItemObj);
-    </script>
-  </body>
+      // Create card element
+      const cardEl = document.createElement("div");
+      cardEl.classList.add("card");
+      cardEl.setAttribute("draggable", "true");
+
+      // On dragstart, store card data & element in dataTransfer
+      cardEl.addEventListener("dragstart", (e) => {
+        // We'll store the card info as a JSON string in dataTransfer
+        e.dataTransfer.setData("application/json", JSON.stringify(cardData));
+      });
+
+      // Card content
+      const cardContentEl = document.createElement("div");
+      cardContentEl.classList.add("card-content");
+      cardContentEl.textContent = cardData.content;
+
+      // Delete button
+      const deleteBtn = document.createElement("button");
+      deleteBtn.classList.add("delete-btn");
+      deleteBtn.textContent = "×";
+      deleteBtn.addEventListener("click", () => {
+        deleteCardAndRemoveFromUI(cardData.id, cardEl);
+      });
+
+      cardEl.appendChild(cardContentEl);
+      cardEl.appendChild(deleteBtn);
+
+      columnElement.appendChild(cardEl);
+    }
+
+    // Delete card from UI + server
+    function deleteCardAndRemoveFromUI(cardId, cardElement) {
+      deleteCard(cardId)
+        .then(() => {
+          cardElement.remove(); // remove from DOM
+        })
+        .catch((error) => console.error("Error deleting card:", error));
+    }
+
+    // Low-level DELETE request
+    function deleteCard(cardId) {
+      return fetch(`${baseApiUrl}/${cardId}`, { method: "DELETE" })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to delete card");
+          }
+        });
+    }
+
+    // Low-level CREATE (POST) request
+    // Returns a promise that resolves to the new card
+    function createCard(prefix, content) {
+      // Build temporary ID: prefix + random number
+      const randomNumber = Math.floor(Math.random() * 10000);
+      const tempId = `${prefix}_${randomNumber}`;
+
+      const body = {
+        id: tempId,
+        content: content,
+      };
+
+      return fetch(baseApiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      })
+        .then((res) => res.json())
+        .then((newCard) => {
+          placeCardInColumn(newCard);
+          return newCard;
+        });
+    }
+
+    // Handle the + Add button for each column
+    document.querySelectorAll(".add-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const columnPrefix = btn.getAttribute("data-column");
+        showAddCardForm(columnPrefix, btn.parentElement);
+      });
+    });
+
+    // Show an input form for the user to type new card content
+    function showAddCardForm(columnPrefix, footerEl) {
+      // If there's already an open input form, remove it first
+      const existingForm = footerEl.parentElement.querySelector(".input-container");
+      if (existingForm) {
+        existingForm.remove();
+      }
+
+      // Clone the template
+      const inputTemplate = document.getElementById("input-template");
+      const newForm = inputTemplate.cloneNode(true);
+      newForm.id = ""; 
+      newForm.style.display = "flex"; // make it visible
+
+      // Insert above the footer
+      footerEl.parentElement.insertBefore(newForm, footerEl);
+
+      // Handle Post button
+      const postBtn = newForm.querySelector(".post-btn");
+      postBtn.addEventListener("click", () => {
+        const textArea = newForm.querySelector("textarea");
+        const content = textArea.value.trim();
+        if (!content) {
+          alert("Please enter some content!");
+          return;
+        }
+
+        // Create card
+        createCard(columnPrefix, content).then(() => {
+          newForm.remove();
+        });
+      });
+    }
+
+    // DRAG & DROP SETUP
+    function setupDragAndDrop() {
+      document.querySelectorAll(".cards").forEach((cardsContainer) => {
+        // Dragover: must preventDefault to allow dropping
+        cardsContainer.addEventListener("dragover", (e) => {
+          e.preventDefault();
+          cardsContainer.classList.add("drag-over");
+        });
+
+        cardsContainer.addEventListener("dragleave", () => {
+          cardsContainer.classList.remove("drag-over");
+        });
+
+        // On drop, remove card from old column, re-create it in the new column
+        cardsContainer.addEventListener("drop", (e) => {
+          e.preventDefault();
+          cardsContainer.classList.remove("drag-over");
+
+          const rawData = e.dataTransfer.getData("application/json");
+          if (!rawData) return; // no card data
+
+          const oldCardData = JSON.parse(rawData);
+          const oldCardPrefix = oldCardData.id.split("_")[0];
+          const newCardPrefix = cardsContainer.parentElement.dataset.column;
+
+          // If the prefix is the same, do nothing
+          if (oldCardPrefix === newCardPrefix) {
+            return;
+          }
+
+          // STEP 1: Remove the card from UI immediately
+          // (So user sees it disappear from the old column right away)
+          // We'll look up the card element by its ID in the old column
+          const oldColumnEl = document.getElementById(oldCardPrefix + "Column");
+          if (oldColumnEl) {
+            // Find the DOM element with matching content or some ID. 
+            // We only know the ID in data, so let's do a quick approach:
+            // The easiest is to manually remove it if we can find it.
+            // In practice, you might store a map of ID -> cardEl for quick lookup.
+            const cardEls = oldColumnEl.querySelectorAll(".card");
+            cardEls.forEach((el) => {
+              // If the text matches or if we had stored some data attribute 
+              // Here we match content as a best-effort approach:
+              if (el.querySelector(".card-content")?.textContent === oldCardData.content) {
+                el.remove();
+              }
+            });
+          }
+
+          // STEP 2: DELETE the old card on the server
+          deleteCard(oldCardData.id)
+            .then(() => {
+              // STEP 3: Create a new card on the server with the new prefix
+              return createCard(newCardPrefix, oldCardData.content);
+            })
+            .catch((err) => console.error("Error during card move:", err));
+        });
+      });
+    }
+  </script>
+</body>
 </html>

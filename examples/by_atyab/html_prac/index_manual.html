@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>Insight Flow</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  </head>
+  
+  <body>
+    <h1>
+        Let’s Uncover What You Don’t Know
+    </h1>
+
+    <hr>
+
+    <div class="container">
+        <div id="wwc" class="div1">
+            <span class="square"></span>
+            <h2 class="h2">What Went Well</h2>
+        </div>
+
+        <div id="cfc" class="div2">
+            <span class="square1"></span>
+            <h2 class="h2">Challenges Faced</h2>
+        </div>
+
+        <div id="aic" class="div3">
+            <span class="square2"></span>
+            <h2 class="h2">Action Items</h2>
+        </div>
+    </div>
+
+    <hr />
+
+    <input id="usrMsg" type="text" placeholder="Your Message Here" />
+    <button onclick="displayGivenMsg()">Post It!</button>
+    <span id="displayUserMsg"></span>
+    <h4 id="displayMsg"></h4>
+
+    <!-- Add a drop down menu to select available columns -->
+    <select id="colSelector">
+      <option value="wwc">Went Well</option>
+      <option value="cfc">Challenges faced</option>
+      <option value="aic">Action items</option>
+    </select>
+
+    <!-- <script src="asyncTest.js"></script> -->
+    <!-- <script src="getData.js"></script> -->
+    <script src="getCards.js"></script>
+  </body>
+</html>
