@@ -98,3 +98,38 @@
 .my-0{
 color: rgb(130, 130, 130);
 }
+
+#wentWellSquare{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+    margin-top: 2px;
+    border: solid rgb(122, 224, 255) 2px;
+    background-color: rgb(122, 224, 255);
+}
+
+#challengeSquare{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+    margin-top: 5px;
+    border: solid rgb(255, 171, 135) 2px;
+    background-color: rgb(255, 171, 135);
+}
+
+#actionSquare{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+    margin-top: 5px;
+    border: solid rgb(153, 166, 181) 2px;
+    background-color: rgb(153, 166, 181);
+}
+
+.container{
+    margin-bottom: 5px;
+}
+
