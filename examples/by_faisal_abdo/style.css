@@ -71,16 +71,25 @@ h3 {
     color: white;
     background-color: rgb(45, 199, 56);
     padding: 8px;
+    font-size:medium;
 }
 
 .cfSection h5 {
     color: white;
     background-color: rgb(223, 28, 28);
     padding: 8px;
+    font-size:medium;
 }
 
 .alSection h5 {
     color: white;
     background-color: rgb(30, 73, 166);
     padding: 8px;
+    font-size:medium;
+}
+
+.delete-btn{
+    background-color:transparent; 
+    position: absolute;
+    border: none;
 }
