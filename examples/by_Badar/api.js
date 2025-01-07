@@ -119,9 +119,6 @@ const addMesssage = () => {
 
     }
     
-    
-
-    
 
 
 
@@ -147,6 +144,3 @@ const deleteCard = (id) => {
 const requestOptions = {
   method: "DELETE"
 };
-
-
-

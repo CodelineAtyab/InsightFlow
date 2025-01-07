@@ -37,6 +37,7 @@
 .wentWellobject{
     font-family: Neucha, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     width: 400px;
+    overflow-wrap: break-word;
     border: solid rgb(122, 224, 255) 2px;
     background-color: rgb(122, 224, 255);
     margin: 5px;
@@ -48,6 +49,7 @@
 .ChallengesObject{
     font-family: Neucha, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     width: 400px;
+    overflow-wrap: break-word;
     border: solid rgb(255, 171, 135) 2px;
     background-color: rgb(255, 171, 135);
     margin: 5px;
@@ -59,6 +61,7 @@
 .actionListObject{
     font-family: Neucha, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     width: 400px;
+    overflow-wrap: break-word;
     border: solid rgb(153, 166, 181) 2px;
     background-color: rgb(153, 166, 181);
     margin: 5px;
@@ -84,9 +87,9 @@
 }
 
 .delete-btn{
-    width: 45px;
+    width: 40px;
     margin: 5px;
-    margin-left: 70%;
+
     border-radius: 8px;
     padding-left: 2px;
     align-items: right;
