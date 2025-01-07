@@ -23,7 +23,7 @@ fetch("http://localhost:8080/card")
                     const wwcDivObj = document.getElementById("whatWentWellColumn");
                     let newSpanObj = document.createElement("h5");
                     newSpanObj.setAttribute('id', element.id);
-                    newSpanObj.innerHTML = `${element.content} <img src="trash.png" class="delete-btn" onclick="deleteCard('${element.id}')" >`;
+                    newSpanObj.innerHTML = `${element.content} <img src="delete.png" class="delete-btn" onclick="deleteCard('${element.id}')" >`;
                     newSpanObj.className = "wentWellobject";
 
                     wwcDivObj.append(newSpanObj);
@@ -36,7 +36,7 @@ fetch("http://localhost:8080/card")
 
                     let newSpanObj = document.createElement("h5");
                     newSpanObj.setAttribute('id', element.id)
-                    newSpanObj.innerHTML = `${element.content} <img src="trash.png" class="delete-btn" onclick="deleteCard('${element.id}')" >`;
+                    newSpanObj.innerHTML = `${element.content} <img src="delete.png" class="delete-btn" onclick="deleteCard('${element.id}')" >`;
                     newSpanObj.className = "ChallengesObject";
 
                     challengesDivObj.append(newSpanObj);
@@ -51,7 +51,7 @@ fetch("http://localhost:8080/card")
                     const actionDivObj = document.getElementById("actionListColumn");
                     let newSpanObj = document.createElement("h5");
                     newSpanObj.id = crypto.randomUUID();
-                    newSpanObj.innerHTML = `${element.content} <img src="trash.png" class="delete-btn" onclick="deleteCard('${element.id}')" >`;
+                    newSpanObj.innerHTML = `${element.content} <img src="delete.png" class="delete-btn" onclick="deleteCard('${element.id}')" >`;
                     newSpanObj.className = "actionListObject";
                     actionDivObj.append(newSpanObj);
 
@@ -78,7 +78,7 @@ const addMesssage = () => {
             newListItem.className = "wentWellobject";
             newListItem.id = crypto.randomUUID();
             const uuid = newListItem.id.toString();
-            newListItem.innerHTML = `${inputValue} <img src="trash.png" class="delete-btn" onclick="deleteCard('${uuid}')">`;
+            newListItem.innerHTML = `${inputValue} <img src="delete.png" class="delete-btn" onclick="deleteCard('${uuid}')">`;
     
             wwcDivObj.append(newListItem);
     
@@ -86,7 +86,7 @@ const addMesssage = () => {
             newListItem.className = "ChallengesObject"
             newListItem.id = crypto.randomUUID();
             const uuid = newListItem.id.toString();
-            newListItem.innerHTML = `${inputValue} <img src="trash.png" class="delete-btn" onclick="deleteCard('${uuid}')">`;
+            newListItem.innerHTML = `${inputValue} <img src="delete.png" class="delete-btn" onclick="deleteCard('${uuid}')">`;
     
             challengesDivObj.append(newListItem);
     
@@ -94,7 +94,7 @@ const addMesssage = () => {
             newListItem.className = "actionListObject"
             newListItem.id = crypto.randomUUID();
             const uuid = newListItem.id.toString();
-            newListItem.innerHTML = `${inputValue} <img src="trash.png" class="delete-btn" onclick="deleteCard('${uuid}')">`;
+            newListItem.innerHTML = `${inputValue} <img src="delete.png" class="delete-btn" onclick="deleteCard('${uuid}')">`;
     
             actionDivObj.append(newListItem);
         }
