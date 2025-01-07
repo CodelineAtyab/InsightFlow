@@ -1,8 +1,13 @@
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retrospective</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <img src="img/images.png" alt="Logo" class="logo">
@@ -19,66 +24,168 @@
             <button onclick="addMessage()">Add Message</button>
         </div>
     </section>
+
     <main class="main-content">
         <section id="wentWellSection" class="section went-well">
             <h2 class="section-title">
                 <span class="dot"></span> What Went Well
             </h2>
-            <div id="wwc-column" class="card"></div>
-            </section>
+            <div id="wwc-column" class="card-container"></div> 
+        </section>
         <section id="challengesSection" class="section challenges">
             <h2 class="section-title">
                 <span class="dot"></span> Challenges Faced
             </h2>
-            <div id="cfc-column" class="card"> </div>
-            
+            <div id="cfc-column" class="card-container"></div> 
         </section>
         <section id="actionItemSection" class="section action-items">
             <h2 class="section-title">
                 <span class="dot"></span> Action Items
             </h2>
-            <div id="aic-column" class="card"></div>
+            <div id="aic-column" class="card-container"></div>
         </section>
     </main>
+
     <script>
+        const apiUrl = "http://localhost:8080/api/v1/card";  
+
+        function fetchCards() {
+            fetch(apiUrl)
+                .then(response => response.json())  
+                .then(cards => {
+                    cards.forEach(card => addCardToUI(card));  
+                })
+                .catch(error => console.error("Error fetching cards:", error));
+        }
+   
         function addMessage() {
-            const message = document.getElementById("userMsg").value;
+            const message = document.getElementById("userMsg").value.trim();
             const selectedSection = document.getElementById("sectionSelector").value;
-            const section = document.querySelector(`.${selectedSection}`);
-            const newCard = document.createElement("div");
-            newCard.classList.add("card");
-            newCard.textContent = message;
-            section.appendChild(newCard);
+
+            if (message === "") {
+                alert("Message cannot be empty!");
+                return;
+            }
+
+            const card = {
+                id: Date.now().toString(),
+                content: message,
+                section: selectedSection
+            };
+
+            fetch(apiUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(card),  
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Failed to save the card.");
+                    }
+                    return response.json();
+                })
+                .then(savedCard => {
+                    addCardToUI(savedCard);  
+                    document.getElementById("userMsg").value = "";  
+                })
+                .catch(error => console.error("Error saving card:", error));
         }
-    </script>
-    <script>
-        const wwcList = ["We completed the project on time","We had a good team collaboration","We received positive feedback from the client"];
-        const cfcList = ["We faced a lot of bugs in the project","We had a lot of communication issues","We had a lot of communication issues"];
-        const aicList = ["We need to improve our testing process","We need to improve our testing process","We need to improve our testing process"];
-        
 
+        function updateCard(id) {
+            const message = prompt("Edit your message:");
+            if (!message) return;
 
-        const wwcColumn = document.getElementById("wentWellSection")
-        const cfcColumn = document.getElementById('challengesSection');
-        const aicColumn = document.getElementById('actionItemSection');
+            const selectedSection = document.getElementById("sectionSelector").value;
 
-        function displayListInColumn(list, columnElement) {
-            list.forEach(item => {
-                const itemElement = document.createElement('div');
-                 itemElement.textContent = item;
-                 itemElement.classList.add('card');
-                columnElement.appendChild(itemElement);
-             
-            });
+            const updatedCard = {
+                content: message,
+                section: selectedSection
+            };
+
+            fetch(`${apiUrl}/${id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(updatedCard),  
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Failed to update the card.");
+                    }
+                    return response.json();
+                })
+                .then(updatedCard => {
+                    const cardElement = document.querySelector(`[data-id="${id}"]`);
+                    cardElement.textContent = updatedCard.content; 
+
+                    cardElement.appendChild(createEditButton(id));
+                    cardElement.appendChild(createDeleteButton(id));
+                })
+                .catch(error => console.error("Error updating card:", error));
         }
 
+        function deleteCard(id) {
+            fetch(`${apiUrl}/${id}`, {
+                method: "DELETE", 
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Failed to delete the card.");
+                    }
+                    const cardElement = document.querySelector(`[data-id="${id}"]`);
+                    cardElement.remove();  
+                })
+                .catch(error => console.error("Error deleting card:", error));
+        }
 
-        displayListInColumn(wwcList, wwcColumn);
-        displayListInColumn(cfcList, cfcColumn);
-        displayListInColumn(aicList, aicColumn); 
-        
-      
+        function createEditButton(id) {
+            const editButton = document.createElement("button");
+            editButton.textContent = "Edit";
+            editButton.onclick = () => updateCard(id);
+            return editButton;
+        }
+
+        function createDeleteButton(id) {
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.onclick = () => deleteCard(id);
+            return deleteButton;
+        }
+
+        function addCardToUI(card) {
+            let targetContainer;
+
+  
+            if (card.section === "went-well") {
+                targetContainer = document.getElementById("wwc-column");
+            } else if (card.section === "challenges") {
+                targetContainer = document.getElementById("cfc-column");
+            } else if (card.section === "action-items") {
+                targetContainer = document.getElementById("aic-column");
+            }
+
+            if (targetContainer) {
+            
+                const cardElement = document.createElement("div" );
+                cardElement.textContent = card.content;
+                cardElement.setAttribute("data-id", card.id); 
+
+          
+                cardElement.appendChild(createEditButton(card.id));
+                cardElement.appendChild(createDeleteButton(card.id));
+
+         
+                targetContainer.appendChild(cardElement);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", fetchCards); 
 
     </script>
+    
 </body>
+
 </html>

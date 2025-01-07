@@ -13,6 +13,7 @@
     <div class="form">
       <input id="in1" type="text" placeholder="type anything" />
       <button class="PostBttn" onclick="addMessageToList()">Post</button>
+
     </div>
     <br />
     <div class="dropdown">
@@ -107,6 +108,7 @@
         .then((response) => response.json())
         .then((result) => {
           console.log(result);
+
 
           result.forEach((cardObj) => {
             const listElement = document.createElement("h5");
