@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Insight Flow</title>
     <link rel="stylesheet" href="style.css">
-    <script src = "getCards.js"></script>
-    <link href ="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="test.js"></script>
+    <script src="getData.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
     <img src="img/feadback1.png">
     <h1>Let's Reveal What You Don't Know</h1>
@@ -22,25 +25,26 @@
         <option value="aic">Action Items</option>
     </select>
     <hr>
-    <br/><br/><br/><br/>
+    <br /><br /><br /><br />
     <div class="container">
-        <div id="wwc">
+        <div class="div1">
             <span class="squareOne"></span>
-            <h2>What Went Well</h2>
-            <!-- <h3 class="item1">We had revisions</h3>
-            <h3 class="item2">Efficient collaboration</h3>
-            <h3 class="item3">We are motivated</h3> -->
+            <h2 class="h2">What Went Well</h2>
+            <h3 class="item1">We had revisions</h3>
+           <h3 class="item2">Efficient collaboration</h3>
+            <h3 class="item3">We are motivated</h3> 
         </div>
-        <div id="cfc">
+        <div  class="div2">
             <span class="squareTwo"></span>
-            <h2>Challenges Faced</h2>
-            <!-- <h3 class="item4">Limited collaboration</h3>
-            <h3 class="item5">Time restrictions</h3> -->
+            <h2 class="h2">Challenges Faced</h2>
+            <h3 class="item4">Limited collaboration</h3>
+            <h3 class="item5">Time restrictions</h3> 
         </div>
-        <div id="aic">
+        <div class="div3">
             <span class="squareThree"></span>
-            <h2>Action Items</h2>
-            <!-- <h3 class="item6">This is an item in action</h3> -->
+            <h2 class="h2">Action Items</h2>
+            <h3 class="item6">This is an item in action</h3> 
+        
         </div>
     </div>
     <script>
@@ -54,19 +58,20 @@
         };
         // Function to add the message to the selected column
         const addMsg = () => {
-    const selectedColumnID = document.getElementById("colSelector").value;
-    const userInputMsg = document.getElementById("userMsg").value;
-    const selectedColumn = document.getElementById(selectedColumnID);
-    if (userInputMsg) {
-        const newListElement = document.createElement("h3");
-        newListElement.textContent = userInputMsg;
-        selectedColumn.appendChild(newListElement);
-        document.getElementById("userMsg").value = "";
-    }
-};
+            const selectedColumnID = document.getElementById("colSelector").value;
+            const userInputMsg = document.getElementById("userMsg").value;
+            const selectedColumn = document.getElementById(selectedColumnID);
+            if (userInputMsg) {
+                const newListElement = document.createElement("h3");
+                newListElement.textContent = userInputMsg;
+                selectedColumn.appendChild(newListElement);
+                document.getElementById("userMsg").value = "";
+            }
+        };
     </script>
-     <!-- <script>
-       const wwcList = ["We had revisions", "Efficient collaboration", "We are motivated"];
+    <!--
+    <script>
+        const wwcList = ["We had revisions", "Efficient collaboration", "We are motivated"];
         const cfcList = ["Limited collaboration", "Time restrictions"];
         const aicList = ["This is an item in action"];
         const addItemsToColumns = () => {
@@ -82,8 +87,11 @@
             addToList("cfc", cfcList);
             addToList("aic", aicList);
         };
+
+        
         addItemsToColumns();
     </script>
-    <script src="asyncTest.Js"></script> -->
+    -->
 </body>
+
 </html>
