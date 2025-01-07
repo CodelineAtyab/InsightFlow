@@ -6,16 +6,20 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.regex.Pattern;
 
 @RestController
 @CrossOrigin (origins = "*")
 @RequestMapping(path = "/card")
 public class CardController {
     //define an array list that will store all the
-    private ArrayList<Card> cardArrayList = new ArrayList<>();
+    private CopyOnWriteArrayList<Card> cardArrayList = new CopyOnWriteArrayList<>();
 
     @GetMapping
-    public ArrayList<Card> getAllCards(){
+    public List<Card> getAllCards(){
         return cardArrayList;
     }
 
@@ -29,6 +33,14 @@ public class CardController {
 
     @PostMapping
     public Card addCard(@RequestBody Card newCard){
+        //validate the input
+        //this is the only format allowed: wwc_num, aic_num, cfc_num
+        String regex = "^(wwc|aic|cfc)_[0-9]+$";
+        if (!Pattern.matches(regex, newCard.getId())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid card ID format");
+        }
+        //if input is valid, then generate the card id randomly
+        newCard.id = newCard.id.split("_")[0] + "_" + UUID.randomUUID().toString();
         cardArrayList.add(newCard);
         return newCard;
     }
