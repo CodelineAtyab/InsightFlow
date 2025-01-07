@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe99572e-09cd-4c27-9750-67a3fc6ee571" name="Changes" comment="" />
+    <list default="true" id="fe99572e-09cd-4c27-9750-67a3fc6ee571" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../InsightFlowTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../abstract-circle-logo-icon-free-png.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../style.css" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
