@@ -1,0 +1,135 @@
+.columns {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 100px;
+}
+#codeArchitectsHeader {
+    font-family: Neucha, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: rgb(110, 146, 236);
+    text-align: center;
+    margin: -5px;
+}
+
+#caBoardTitle{
+    font-family: Neucha, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+}
+
+.boardchange{
+    margin-right: 5%;
+    align-items: center;
+}
+
+.messageEntry{
+    text-align: center;
+}
+
+#logoimg{
+    text-align: left;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+} 
+.headerblock{
+    display: grid;
+    grid-template-rows: 1;
+}
+.wentWellobject{
+    font-family: Neucha, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    width: 400px;
+    overflow-wrap: break-word;
+    border: solid rgb(122, 224, 255) 2px;
+    background-color: rgb(122, 224, 255);
+    margin: 5px;
+    margin-right: 10%;
+    border-radius: 8px;
+    padding-left: 2px;
+    opacity: 90%;
+}
+.ChallengesObject{
+    font-family: Neucha, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    width: 400px;
+    overflow-wrap: break-word;
+    border: solid rgb(255, 171, 135) 2px;
+    background-color: rgb(255, 171, 135);
+    margin: 5px;
+    margin-right: 10%;
+    border-radius: 8px;
+    padding-left: 2px;
+    opacity: 90%;
+}
+.actionListObject{
+    font-family: Neucha, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    width: 400px;
+    overflow-wrap: break-word;
+    border: solid rgb(153, 166, 181) 2px;
+    background-color: rgb(153, 166, 181);
+    margin: 5px;
+    margin-right: 10%;
+    border-radius: 8px;
+    padding-left: 2px;
+    opacity: 90%;
+}
+.columnHeader {
+    font-family: Neucha, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    text-align: center;
+    margin-right: 40%;
+
+}
+
+.input-group{
+    margin-top: 5px;
+    align-items: center;
+}
+
+.navbar navbar-dark bg-dark{
+    align-items: center;
+}
+
+.delete-btn{
+    width: 40px;
+    margin: 5px;
+
+    border-radius: 8px;
+    padding-left: 2px;
+    align-items: right;
+}
+
+.my-0{
+color: rgb(130, 130, 130);
+}
+
+#wentWellSquare{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+    margin-top: 2px;
+    border: solid rgb(122, 224, 255) 2px;
+    background-color: rgb(122, 224, 255);
+}
+
+#challengeSquare{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+    margin-top: 5px;
+    border: solid rgb(255, 171, 135) 2px;
+    background-color: rgb(255, 171, 135);
+}
+
+#actionSquare{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+    margin-top: 5px;
+    border: solid rgb(153, 166, 181) 2px;
+    background-color: rgb(153, 166, 181);
+}
+
+.container{
+    margin-bottom: 5px;
+}
+
