@@ -61,7 +61,7 @@ header h1 {
     font-size: 1.4em;
     font-weight: 700;
     margin-bottom: 25px;
-    color: #444;
+    color: #ffffff;
     text-transform: capitalize;
 }
 
@@ -76,6 +76,18 @@ header h1 {
     background-color: #34A853;
 }
 
+.challenges {
+    background-color: #520904;
+    color: #ffffff;
+}
+.went-well{
+    background-color: #47435a;
+    color: #ffffff;
+}
+.action-items {
+    background-color: #440133;
+    color: #ffffff;
+}
 .challenges .section-title .dot {
     background-color: #EA2F21;
 }
@@ -84,32 +96,13 @@ header h1 {
     background-color: #9F39F8;
 }
 
-.card {
-    margin: 15px 0;
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 20px;
-    border-radius: 100px;
-    text-align: center;
-    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
 
-.went-well .card {
-    background-color: burlywood;
-}
-
-.challenges .card {
-    background-color: blue;
-}
-
-.action-items .card {
-    background-color: red;
-}
 
 .input-section {
     margin-top: 30px;
@@ -196,4 +189,8 @@ header h1 {
     .input-section button {
         font-size: 14px;
     }
+    
+}
+div {
+font-size: larger;
 }
