@@ -1,6 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insight Flow</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,18 +14,17 @@
     <hr>
     <div>
         <input type="text" id="userMsg" placeholder="Your Message Here">
-        <button>Post It</button>
+        <button id="postButton">Post It</button>
     </div>
     <h2 class="options">
-        Select a section for your feedback 
+        Select a section for your feedback
     </h2>
-    <select>
+    <select id="feedbackCategory">
         <option value="went-well">What went well</option>
         <option value="challenges">Challenges faced</option>
-        <option value="Actions">Action Items</option>
+        <option value="actions">Action Items</option>
     </select>
-    <br>
-    <br>
+    <br><br>
 
     <div class="columns">
         <div>
@@ -33,86 +35,98 @@
         <div>
             <span class="squareTwo"></span>
             <h2>Challenges faced</h2>
-            <div id="Challenges"></div>
+            <div id="challenges"></div>
         </div>
         <div>
             <span class="squareThree"></span>
             <h2>Action Items</h2>
-            <div id="Actions"></div>
+            <div id="actions"></div>
         </div>
     </div>
-
+    <script src="insightFLowFetch.js"> </script>
     <script>
-        // Predefined lists
-        const wwcList = ["We had revision", "We had tasks that gave us a good idea about HTML", "We are motivated"];
-        const cfcList = ["Time restrictions", "Focusing at the end of the session"];
-        const aicList = ["Action to do"];
+        // Load data from localStorage or initialize empty arrays
+        const wwcList = JSON.parse(localStorage.getItem("wwcList")) || [];
+        const cfcList = JSON.parse(localStorage.getItem("cfcList")) || [];
+        const aicList = JSON.parse(localStorage.getItem("aicList")) || [];
+
+        // Save data to localStorage
+        const saveToLocalStorage = () => {
+            localStorage.setItem("wwcList", JSON.stringify(wwcList));
+            localStorage.setItem("cfcList", JSON.stringify(cfcList));
+            localStorage.setItem("aicList", JSON.stringify(aicList));
+        };
 
         // Function to populate columns
         const populateColumns = () => {
-            const wentWellContainer = document.getElementById("went-well");
-            const challengesContainer = document.getElementById("Challenges");
-            const actionsContainer = document.getElementById("Actions");
+            document.getElementById("went-well").innerHTML = "";
+            document.getElementById("challenges").innerHTML = "";
+            document.getElementById("actions").innerHTML = "";
+
+            // Helper function to create a card with delete button
+            const createCard = (item, className, list, index) => {
+                const h4 = document.createElement("h4");
+                h4.className = className;
+                h4.innerText = item;
+
+                // Create delete button
+                const deleteBtn = document.createElement("button");
+                deleteBtn.className = "delete-btn";
+                deleteBtn.innerText = "X";
+                deleteBtn.onclick = () => {
+                    list.splice(index, 1); // Remove item from array
+                    saveToLocalStorage(); // Save updated list
+                    populateColumns(); // Repopulate columns
+                };
+
+                h4.appendChild(deleteBtn); // Add delete button to card
+                return h4;
+            };
 
             // Populate 'What went well'
-            wwcList.forEach(item => {
-                const h4 = document.createElement("h4");
-                h4.className = "wentWell";
-                h4.innerText = item;
-                wentWellContainer.append(h4);
+            wwcList.forEach((item, index) => {
+                document.getElementById("went-well").appendChild(createCard(item, "wentWell", wwcList, index));
             });
 
             // Populate 'Challenges faced'
-            cfcList.forEach(item => {
-                const h4 = document.createElement("h4");
-                h4.className = "chall";
-                h4.innerText = item;
-                challengesContainer.append(h4);
+            cfcList.forEach((item, index) => {
+                document.getElementById("challenges").appendChild(createCard(item, "chall", cfcList, index));
             });
 
             // Populate 'Action Items'
-            aicList.forEach(item => {
-                const h4 = document.createElement("h4");
-                h4.className = "act";
-                h4.innerText = item;
-                actionsContainer.append(h4);
+            aicList.forEach((item, index) => {
+                document.getElementById("actions").appendChild(createCard(item, "act", aicList, index));
             });
         };
 
-        // Call populateColumns on page load
-        window.onload = populateColumns;
-
         // Function to handle adding new feedback
         const addToList = () => {
-            const userMsg = document.getElementById("userMsg").value;
-            const select = document.querySelector("select").value;
+            const userMsg = document.getElementById("userMsg").value.trim();
+            const category = document.getElementById("feedbackCategory").value;
 
-            let listId, className;
-            if (select === "went-well") {
-                listId = "went-well";
-                className = "wentWell";
-            } else if (select === "challenges") {
-                listId = "Challenges";
-                className = "chall";
-            } else if (select === "Actions") {
-                listId = "Actions";
-                className = "act";
+            if (!userMsg) return; // Do not proceed if input is empty
+
+            if (category === "went-well") {
+                wwcList.push(userMsg);
+            } else if (category === "challenges") {
+                cfcList.push(userMsg);
+            } else if (category === "actions") {
+                aicList.push(userMsg);
             }
 
-            const list = document.getElementById(listId);
-            if (list && userMsg.trim()) {
-                const newListItem = document.createElement("h4");
-                newListItem.innerText = userMsg;
-                newListItem.classList.add(className);
-                list.append(newListItem);
-            }
-
-            document.getElementById("userMsg").value = "";
+            saveToLocalStorage(); // Save updated lists to localStorage
+            populateColumns(); // Repopulate columns
+            document.getElementById("userMsg").value = ""; // Clear input field
         };
 
-        document.querySelector("button").addEventListener("click", addToList);
+        // Event listener for 'Post It' button
+        document.getElementById("postButton").addEventListener("click", addToList);
+
+        // Populate columns on page load
+        
+        window.onload = populateColumns;
     </script>
-     <script src="insightFLowFetch.js"> </script>
+    
 </body>
 
 </html>
