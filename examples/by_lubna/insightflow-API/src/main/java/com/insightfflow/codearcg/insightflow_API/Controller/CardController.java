@@ -6,17 +6,23 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "/card")
+
+@RequestMapping(path = "/api/v1/card")
 
 
 public class CardController {
-    private ArrayList<Card> cardStore = new ArrayList<>();
+    private CopyOnWriteArrayList<Card> cardStore = new CopyOnWriteArrayList<>();
 
     @GetMapping
-    public ArrayList<Card> getAllCards() {
+    public List<Card> getAllCards() {
+
         return cardStore;
     }
 
