@@ -5,15 +5,17 @@ import com.insightflow.codearchs.insight_flow_api.model.Card;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "/api/v1/card")
 public class CardController {
-    private ArrayList<Card> cardStore = new ArrayList<>();
+    private CopyOnWriteArrayList<Card> cardStore = new CopyOnWriteArrayList<>();
 
     @GetMapping
-    public ArrayList<Card> getAllCards() {
+    public List<Card> getAllCards() {
         return cardStore;
     }
 
@@ -40,8 +42,8 @@ public class CardController {
     public String deleteByCardId(@PathVariable String id) {
         cardStore.removeIf(currCard -> currCard.id.equals(id));
         return "deleted";
-
     }
+
     @PutMapping(path = "/{id}")
     public Card updateSpecificCard(@PathVariable String id, @RequestBody Card updatedCard) {
         for (int i = 0; i < cardStore.size(); i++) {
