@@ -99,6 +99,18 @@ h2 {
         width: 300px;
         text-align: center;
     }
+
+    h4 .delete-btn {
+        float: right;
+        background: rgb(225, 240, 139);
+        color: rgb(6, 0, 0);
+        border: none;
+        border-radius: 3px;
+        padding: 3px 6px;
+        cursor: pointer;
+        font-size: 12px;
+    }
+    
     
     .columns {
         display: grid;
